@@ -1,30 +1,1367 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Bootstrap 5.3.7 References -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
-    <!-- Style e JS do Site -->
-    <link rel="stylesheet" href="assets/css/style.css">
-    <script src="assets/js/script.js"></script>
-    <title>Sparflix</title>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Home - Sparflix</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
 </head>
-<body>
-    <!-- Cabeçalho -->
-     <header>
-        <nav>
 
-        </nav>
-     </header>
-    <!-- Avatares -->
-    <!-- Section 1 -->
-    <!-- Section 2 -->
-    <!-- Section 3 -->
-    <!-- Footer -->
-     <footer>
+<body class="index-page">
 
-     </footer>
+  <header id="header" class="header d-flex align-items-center sticky-top">
+    <div class="container position-relative d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <!-- <img src="assets/img/logo.webp" alt=""> -->
+        <h1 class="sitename">SparFlix</h1>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="#hero" class="active">Home</a></li>
+          <li><a href="#about">Sobre</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#team">Team</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+      <div class="header-social-links">
+        <a href="#" class="twitter"><i class="bi bi-twitter-x"></i></a>
+        <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+        <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+        <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+      </div>
+
+    </div>
+  </header>
+
+  <main class="main">
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero section">
+
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="row justify-content-center text-center">
+          <div class="col-lg-10">
+            <div class="hero-content" data-aos="fade-up" data-aos-delay="200">
+              <h1>O lugar certo sobre <br> Dragon Ball Z</h1>
+              <p>
+                Reviva as aventuras épicas de Dragon Ball Z com todos os filmes e episódios da saga. Escolha seu
+                episódio favorito, assista às batalhas lendárias e mergulhe no universo cheio de ação e superpoderes.
+              </p>
+
+              <div class="hero-btns" data-aos="fade-up" data-aos-delay="300">
+                <a href="#about" class="btn btn-primary">Comece sua jornada</a>
+                <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="btn btn-outline glightbox">
+                  <i class="bi bi-play-circle"></i>
+                  Assista a introdução
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <div class="hero-image-container" data-aos="zoom-in" data-aos-delay="400">
+              <div class="hero-image">
+                <img src="https://i.pinimg.com/736x/80/0c/6a/800c6ad08bde2c905cc29331567098e6.jpg" alt="Business Innovation" class="img-fluid">
+                <div class="image-decoration"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row justify-content-center">
+          <div class="col-lg-10">
+            <div class="hero-stats" data-aos="fade-up" data-aos-delay="500">
+              <div class="stat-item">
+                <div class="stat-icon">
+                  <i class="bi bi-trophy"></i>
+                </div>
+                <h3><span data-purecounter-start="0" data-purecounter-end="25" data-purecounter-duration="1"
+                    class="purecounter"></span>+</h3>
+                <p>Awards Won</p>
+              </div>
+              <div class="stat-item">
+                <div class="stat-icon">
+                  <i class="bi bi-people"></i>
+                </div>
+                <h3><span data-purecounter-start="0" data-purecounter-end="850" data-purecounter-duration="1"
+                    class="purecounter"></span>+</h3>
+                <p>Happy Clients</p>
+              </div>
+              <div class="stat-item">
+                <div class="stat-icon">
+                  <i class="bi bi-lightning"></i>
+                </div>
+                <h3><span data-purecounter-start="0" data-purecounter-end="95" data-purecounter-duration="1"
+                    class="purecounter"></span>%</h3>
+                <p>Project Success</p>
+              </div>
+              <div class="stat-item">
+                <div class="stat-icon">
+                  <i class="bi bi-globe"></i>
+                </div>
+                <h3><span data-purecounter-start="0" data-purecounter-end="12" data-purecounter-duration="1"
+                    class="purecounter"></span>+</h3>
+                <p>Countries Served</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section><!-- /Hero Section -->
+
+
+<!-- About Section -->
+<section id="about" class="about section">
+  <!-- Section Title -->
+  <div class="container section-title" data-aos="fade-up">
+    <span class="description-title">Sobre</span>
+    <h2>Dragon Ball Z</h2>
+    <p>Um site feito por mim para guardar e assistir Dragon Ball Z sempre que quiser!</p>
+  </div><!-- End Section Title -->
+
+  <div class="container" data-aos="fade-up" data-aos-delay="100">
+    <div class="row gx-0 gx-lg-5 gy-5 align-items-center">
+      <div class="col-lg-6" data-aos="zoom-out" data-aos-delay="200">
+        <div class="image-wrapper">
+          <div class="image-box">
+            <img src="https://i.pinimg.com/736x/11/95/98/1195982a4d0b42110abd93b799e4e642.jpg" class="img-fluid" alt="Dragon Ball Z" loading="lazy">
+          </div>
+          <div class="experience-box" data-aos="zoom-in" data-aos-delay="300">
+            <div class="years">30+</div>
+            <div class="text">Anos de<br>História</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-6" data-aos="fade-left" data-aos-delay="200">
+        <div class="content">
+          <div class="section-header">
+            <h2>Reviva Dragon Ball Z do seu jeito</h2>
+          </div>
+
+          <p class="highlight-text">
+            Este site foi criado para reunir todos os episódios e filmes de Dragon Ball Z em um só lugar.
+            Aqui você pode assistir as batalhas épicas, transformações lendárias e momentos icônicos quando quiser, sozinho ou acompanhado.
+          </p>
+
+          <div class="features-list">
+            <div class="feature-item" data-aos="zoom-in" data-aos-delay="300">
+              <div class="icon-box">
+                <i class="bi bi-lightning"></i>
+              </div>
+              <div class="text">
+                <h4>Poder Saiyajin</h4>
+                <p>Transformações incríveis e o verdadeiro espírito de luta dos Guerreiros Z em cada episódio.</p>
+              </div>
+            </div>
+
+            <div class="feature-item" data-aos="zoom-in" data-aos-delay="400">
+              <div class="icon-box">
+                <i class="bi bi-stars"></i>
+              </div>
+              <div class="text">
+                <h4>Todos os Filmes e Episódios</h4>
+                <p>Do começo ao fim da saga, todos os momentos memoráveis reunidos em um só lugar.</p>
+              </div>
+            </div>
+
+            <div class="feature-item" data-aos="zoom-in" data-aos-delay="500">
+              <div class="icon-box">
+                <i class="bi bi-fire"></i>
+              </div>
+              <div class="text">
+                <h4>Feito para Fãs</h4>
+                <p>Um projeto pessoal para guardar e assistir Dragon Ball Z sempre que quiser, do seu jeito.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="cta-buttons">
+            <a href="player.html" class="btn-learn-more">Assistir Agora</a>
+            <a href="#" class="btn-get-started">Explore a Saga</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Services Section -->
+<section id="services" class="services section">
+
+  <!-- Section Title -->
+  <div class="container section-title" data-aos="fade-up">
+    <span class="description-title">Recursos</span>
+    <h2>O que você encontra</h2>
+    <p>Este site reúne tudo sobre Dragon Ball Z para você assistir quando quiser!</p>
+  </div><!-- End Section Title -->
+
+  <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+    <div class="services-container">
+      <div class="row g-4">
+        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="service-item">
+            <div class="service-icon">
+              <i class="bi bi-film"></i>
+            </div>
+            <div class="service-content">
+              <span class="service-number">01</span>
+              <h3 class="service-title">Todos os Episódios</h3>
+              <p>Assista a todos os episódios de Dragon Ball Z reunidos em um só lugar, do começo ao fim da saga.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+          <div class="service-item">
+            <div class="service-icon">
+              <i class="bi bi-star"></i>
+            </div>
+            <div class="service-content">
+              <span class="service-number">02</span>
+              <h3 class="service-title">Filmes Icônicos</h3>
+              <p>Tenha acesso a todos os filmes da saga, incluindo batalhas lendárias e transformações épicas dos Guerreiros Z.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
+          <div class="service-item">
+            <div class="service-icon">
+              <i class="bi bi-lightning"></i>
+            </div>
+            <div class="service-content">
+              <span class="service-number">03</span>
+              <h3 class="service-title">Transformações Lendárias</h3>
+              <p>Veja Goku, Vegeta e outros Guerreiros Z alcançando o poder do Super Saiyajin e formas ainda mais poderosas.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
+          <div class="service-item">
+            <div class="service-icon">
+              <i class="bi bi-people"></i>
+            </div>
+            <div class="service-content">
+              <span class="service-number">04</span>
+              <h3 class="service-title">Orgulho Saiyajin</h3>
+              <p>Um espaço feito por um fã para fãs, reunindo tudo de Dragon Ball Z para assistir e reviver a saga.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</section><!-- /Services Section -->
+
+
+    <!-- Steps Section -->
+    <section id="steps" class="steps section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <span class="description-title">Steps</span>
+        <h2>Steps</h2>
+        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="steps-5">
+          <div class="process-container">
+
+            <div class="process-item" data-aos="fade-up" data-aos-delay="200">
+              <div class="content">
+                <span class="step-number">01</span>
+                <div class="card-body">
+                  <div class="step-icon">
+                    <i class="bi bi-pencil-square"></i>
+                  </div>
+                  <div class="step-content">
+                    <h3>Project Planning</h3>
+                    <p>Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac,
+                      enim.</p>
+                  </div>
+                </div>
+              </div>
+            </div><!-- End Process Item -->
+
+            <div class="process-item" data-aos="fade-up" data-aos-delay="300">
+              <div class="content">
+                <span class="step-number">02</span>
+                <div class="card-body">
+                  <div class="step-icon">
+                    <i class="bi bi-gear"></i>
+                  </div>
+                  <div class="step-content">
+                    <h3>Development Phase</h3>
+                    <p>Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros
+                      faucibus.</p>
+                  </div>
+                </div>
+              </div>
+            </div><!-- End Process Item -->
+
+            <div class="process-item" data-aos="fade-up" data-aos-delay="400">
+              <div class="content">
+                <span class="step-number">03</span>
+                <div class="card-body">
+                  <div class="step-icon">
+                    <i class="bi bi-search"></i>
+                  </div>
+                  <div class="step-content">
+                    <h3>Testing &amp; QA</h3>
+                    <p>Phasellus ullamcorper ipsum rutrum nunc. Nunc nonummy metus. Vestibulum volutpat pretium libero.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div><!-- End Process Item -->
+
+            <div class="process-item" data-aos="fade-up" data-aos-delay="500">
+              <div class="content">
+                <span class="step-number">04</span>
+                <div class="card-body">
+                  <div class="step-icon">
+                    <i class="bi bi-rocket-takeoff"></i>
+                  </div>
+                  <div class="step-content">
+                    <h3>Launch &amp; Support</h3>
+                    <p>Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante
+                      tincidunt.</p>
+                  </div>
+                </div>
+              </div>
+            </div><!-- End Process Item -->
+
+          </div>
+        </div>
+
+      </div>
+
+    </section><!-- /Steps Section -->
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials section light-background">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <span class="description-title">Testimonials</span>
+        <h2>Testimonials</h2>
+        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="testimonials-slider swiper init-swiper">
+          <script type="application/json" class="swiper-config">
+            {
+              "loop": true,
+              "speed": 800,
+              "autoplay": {
+                "delay": 5000
+              },
+              "slidesPerView": 1,
+              "spaceBetween": 30,
+              "pagination": {
+                "el": ".swiper-pagination",
+                "type": "bullets",
+                "clickable": true
+              },
+              "breakpoints": {
+                "768": {
+                  "slidesPerView": 2
+                },
+                "1200": {
+                  "slidesPerView": 3
+                }
+              }
+            }
+          </script>
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="testimonial-card">
+                <div class="testimonial-content">
+                  <p>
+                    <i class="bi bi-quote quote-icon"></i>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper
+                    mattis, pulvinar dapibus leo to maecenas aliquam
+                  </p>
+                </div>
+                <div class="testimonial-profile">
+                  <div class="rating">
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                  </div>
+                  <div class="profile-info">
+                    <img src="assets/img/person/person-m-8.webp" alt="Profile Image">
+                    <div>
+                      <h3>Robert Johnson</h3>
+                      <h4>Marketing Director</h4>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-card">
+                <div class="testimonial-content">
+                  <p>
+                    <i class="bi bi-quote quote-icon"></i>
+                    Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus.
+                    Accusantium quam, ultricies eget id, aliquam eget nibh.
+                  </p>
+                </div>
+                <div class="testimonial-profile">
+                  <div class="rating">
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                  </div>
+                  <div class="profile-info">
+                    <img src="assets/img/person/person-f-3.webp" alt="Profile Image">
+                    <div>
+                      <h3>Lisa Williams</h3>
+                      <h4>Product Manager</h4>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-card">
+                <div class="testimonial-content">
+                  <p>
+                    <i class="bi bi-quote quote-icon"></i>
+                    Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim
+                    tempor labore quem eram duis noster aute amet eram.
+                  </p>
+                </div>
+                <div class="testimonial-profile">
+                  <div class="rating">
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                  </div>
+                  <div class="profile-info">
+                    <img src="assets/img/person/person-f-10.webp" alt="Profile Image">
+                    <div>
+                      <h3>Emma Parker</h3>
+                      <h4>UX Designer</h4>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-card">
+                <div class="testimonial-content">
+                  <p>
+                    <i class="bi bi-quote quote-icon"></i>
+                    Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit
+                    minim dolor enim duis veniam ipsum anim magna sunt elit.
+                  </p>
+                </div>
+                <div class="testimonial-profile">
+                  <div class="rating">
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                  </div>
+                  <div class="profile-info">
+                    <img src="assets/img/person/person-m-5.webp" alt="Profile Image">
+                    <div>
+                      <h3>David Miller</h3>
+                      <h4>Senior Developer</h4>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-card">
+                <div class="testimonial-content">
+                  <p>
+                    <i class="bi bi-quote quote-icon"></i>
+                    Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim
+                    culpa labore duis sunt culpa nulla illum cillum fugiat.
+                  </p>
+                </div>
+                <div class="testimonial-profile">
+                  <div class="rating">
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                  </div>
+                  <div class="profile-info">
+                    <img src="assets/img/person/person-m-2.webp" alt="Profile Image">
+                    <div>
+                      <h3>Michael Davis</h3>
+                      <h4>CEO &amp; Founder</h4>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-card">
+                <div class="testimonial-content">
+                  <p>
+                    <i class="bi bi-quote quote-icon"></i>
+                    Eius ipsam praesentium dolor quaerat inventore rerum odio. Quos laudantium adipisci eius. Accusamus
+                    qui iste cupiditate sed temporibus est aspernatur.
+                  </p>
+                </div>
+                <div class="testimonial-profile">
+                  <div class="rating">
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                    <i class="bi bi-star-fill"></i>
+                  </div>
+                  <div class="profile-info">
+                    <img src="assets/img/person/person-f-7.webp" alt="Profile Image">
+                    <div>
+                      <h3>Sarah Thompson</h3>
+                      <h4>Art Director</h4>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div><!-- End testimonial item -->
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+
+      </div>
+
+    </section><!-- /Testimonials Section -->
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <span class="description-title">Portfolio</span>
+        <h2>Portfolio</h2>
+        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="isotope-layout" data-default-filter="*" data-layout="fitRows" data-sort="original-order">
+
+          <div class="portfolio-filters-wrapper" data-aos="fade-up" data-aos-delay="100">
+            <ul class="portfolio-filters isotope-filters">
+              <li data-filter="*" class="filter-active">All Projects</li>
+              <li data-filter=".filter-branding">Branding</li>
+              <li data-filter=".filter-web">Web Design</li>
+              <li data-filter=".filter-print">Print Design</li>
+              <li data-filter=".filter-motion">Motion</li>
+            </ul>
+          </div>
+
+          <div class="row gy-4 portfolio-grid isotope-container" data-aos="fade-up" data-aos-delay="200">
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
+              <div class="portfolio-card">
+                <div class="image-container">
+                  <img src="assets/img/portfolio/portfolio-3.webp" class="img-fluid" alt="Brand Identity"
+                    loading="lazy">
+                  <div class="overlay">
+                    <div class="overlay-content">
+                      <a href="assets/img/portfolio/portfolio-3.webp" class="glightbox zoom-link"
+                        title="Brand Identity Project">
+                        <i class="bi bi-zoom-in"></i>
+                      </a>
+                      <a href="portfolio-details.html" class="details-link" title="View Project Details">
+                        <i class="bi bi-arrow-right"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="content">
+                  <h3>Brand Identity</h3>
+                  <p>Corporate branding and visual identity system</p>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-web">
+              <div class="portfolio-card">
+                <div class="image-container">
+                  <img src="assets/img/portfolio/portfolio-7.webp" class="img-fluid" alt="E-commerce Platform"
+                    loading="lazy">
+                  <div class="overlay">
+                    <div class="overlay-content">
+                      <a href="assets/img/portfolio/portfolio-7.webp" class="glightbox zoom-link"
+                        title="E-commerce Platform">
+                        <i class="bi bi-zoom-in"></i>
+                      </a>
+                      <a href="portfolio-details.html" class="details-link" title="View Project Details">
+                        <i class="bi bi-arrow-right"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="content">
+                  <h3>E-commerce Platform</h3>
+                  <p>Modern online shopping experience</p>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-print">
+              <div class="portfolio-card">
+                <div class="image-container">
+                  <img src="assets/img/portfolio/portfolio-portrait-5.webp" class="img-fluid" alt="Magazine Design"
+                    loading="lazy">
+                  <div class="overlay">
+                    <div class="overlay-content">
+                      <a href="assets/img/portfolio/portfolio-portrait-5.webp" class="glightbox zoom-link"
+                        title="Magazine Design">
+                        <i class="bi bi-zoom-in"></i>
+                      </a>
+                      <a href="portfolio-details.html" class="details-link" title="View Project Details">
+                        <i class="bi bi-arrow-right"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="content">
+                  <h3>Magazine Design</h3>
+                  <p>Editorial layout and typography</p>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-motion">
+              <div class="portfolio-card">
+                <div class="image-container">
+                  <img src="assets/img/portfolio/portfolio-8.webp" class="img-fluid" alt="Motion Graphics"
+                    loading="lazy">
+                  <div class="overlay">
+                    <div class="overlay-content">
+                      <a href="assets/img/portfolio/portfolio-8.webp" class="glightbox zoom-link"
+                        title="Motion Graphics">
+                        <i class="bi bi-zoom-in"></i>
+                      </a>
+                      <a href="portfolio-details.html" class="details-link" title="View Project Details">
+                        <i class="bi bi-arrow-right"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="content">
+                  <h3>Motion Graphics</h3>
+                  <p>Animated visual storytelling</p>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-branding">
+              <div class="portfolio-card">
+                <div class="image-container">
+                  <img src="assets/img/portfolio/portfolio-9.webp" class="img-fluid" alt="Logo Collection"
+                    loading="lazy">
+                  <div class="overlay">
+                    <div class="overlay-content">
+                      <a href="assets/img/portfolio/portfolio-9.webp" class="glightbox zoom-link"
+                        title="Logo Collection">
+                        <i class="bi bi-zoom-in"></i>
+                      </a>
+                      <a href="portfolio-details.html" class="details-link" title="View Project Details">
+                        <i class="bi bi-arrow-right"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="content">
+                  <h3>Logo Collection</h3>
+                  <p>Diverse brand mark explorations</p>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-web">
+              <div class="portfolio-card">
+                <div class="image-container">
+                  <img src="assets/img/portfolio/portfolio-portrait-8.webp" class="img-fluid" alt="Mobile App Design"
+                    loading="lazy">
+                  <div class="overlay">
+                    <div class="overlay-content">
+                      <a href="assets/img/portfolio/portfolio-portrait-8.webp" class="glightbox zoom-link"
+                        title="Mobile App Design">
+                        <i class="bi bi-zoom-in"></i>
+                      </a>
+                      <a href="portfolio-details.html" class="details-link" title="View Project Details">
+                        <i class="bi bi-arrow-right"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="content">
+                  <h3>Mobile App Design</h3>
+                  <p>User-centered interface design</p>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-print">
+              <div class="portfolio-card">
+                <div class="image-container">
+                  <img src="assets/img/portfolio/portfolio-10.webp" class="img-fluid" alt="Packaging Design"
+                    loading="lazy">
+                  <div class="overlay">
+                    <div class="overlay-content">
+                      <a href="assets/img/portfolio/portfolio-10.webp" class="glightbox zoom-link"
+                        title="Packaging Design">
+                        <i class="bi bi-zoom-in"></i>
+                      </a>
+                      <a href="portfolio-details.html" class="details-link" title="View Project Details">
+                        <i class="bi bi-arrow-right"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="content">
+                  <h3>Packaging Design</h3>
+                  <p>Sustainable product packaging solutions</p>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-motion">
+              <div class="portfolio-card">
+                <div class="image-container">
+                  <img src="assets/img/portfolio/portfolio-11.webp" class="img-fluid" alt="Brand Animation"
+                    loading="lazy">
+                  <div class="overlay">
+                    <div class="overlay-content">
+                      <a href="assets/img/portfolio/portfolio-11.webp" class="glightbox zoom-link"
+                        title="Brand Animation">
+                        <i class="bi bi-zoom-in"></i>
+                      </a>
+                      <a href="portfolio-details.html" class="details-link" title="View Project Details">
+                        <i class="bi bi-arrow-right"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="content">
+                  <h3>Brand Animation</h3>
+                  <p>Dynamic brand identity systems</p>
+                </div>
+              </div>
+            </div><!-- End Portfolio Item -->
+
+          </div><!-- End Portfolio Grid -->
+
+        </div>
+
+      </div>
+
+    </section><!-- /Portfolio Section -->
+
+    <!-- Team Section -->
+    <section id="team" class="team section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <span class="description-title">Team</span>
+        <h2>Team</h2>
+        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row g-4">
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="team-member">
+              <div class="member-image">
+                <img src="assets/img/person/person-f-2.webp" class="img-fluid" alt="" loading="lazy">
+                <div class="social-overlay">
+                  <div class="social-icons">
+                    <a href="#"><i class="bi bi-linkedin"></i></a>
+                    <a href="#"><i class="bi bi-twitter-x"></i></a>
+                    <a href="#"><i class="bi bi-instagram"></i></a>
+                  </div>
+                </div>
+              </div>
+              <div class="member-info">
+                <h4>Emma Rodriguez</h4>
+                <span>Senior Developer</span>
+                <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+                  nostrud exercitation.</p>
+              </div>
+            </div><!-- End Team Member -->
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="team-member">
+              <div class="member-image">
+                <img src="assets/img/person/person-m-7.webp" class="img-fluid" alt="" loading="lazy">
+                <div class="social-overlay">
+                  <div class="social-icons">
+                    <a href="#"><i class="bi bi-linkedin"></i></a>
+                    <a href="#"><i class="bi bi-twitter-x"></i></a>
+                    <a href="#"><i class="bi bi-instagram"></i></a>
+                  </div>
+                </div>
+              </div>
+              <div class="member-info">
+                <h4>Michael Torres</h4>
+                <span>Creative Director</span>
+                <p>Lorem ipsum dolor sit amet consectetur adipiscing elit. Pellentesque habitant morbi tristique
+                  senectus et netus.</p>
+              </div>
+            </div><!-- End Team Member -->
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+            <div class="team-member">
+              <div class="member-image">
+                <img src="assets/img/person/person-f-11.webp" class="img-fluid" alt="" loading="lazy">
+                <div class="social-overlay">
+                  <div class="social-icons">
+                    <a href="#"><i class="bi bi-linkedin"></i></a>
+                    <a href="#"><i class="bi bi-twitter-x"></i></a>
+                    <a href="#"><i class="bi bi-instagram"></i></a>
+                  </div>
+                </div>
+              </div>
+              <div class="member-info">
+                <h4>Sarah Mitchell</h4>
+                <span>Project Manager</span>
+                <p>Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                  consequat.</p>
+              </div>
+            </div><!-- End Team Member -->
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="team-member">
+              <div class="member-image">
+                <img src="assets/img/person/person-m-14.webp" class="img-fluid" alt="" loading="lazy">
+                <div class="social-overlay">
+                  <div class="social-icons">
+                    <a href="#"><i class="bi bi-linkedin"></i></a>
+                    <a href="#"><i class="bi bi-twitter-x"></i></a>
+                    <a href="#"><i class="bi bi-instagram"></i></a>
+                  </div>
+                </div>
+              </div>
+              <div class="member-info">
+                <h4>David Kim</h4>
+                <span>Business Analyst</span>
+                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur
+                  excepteur.</p>
+              </div>
+            </div><!-- End Team Member -->
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="team-member">
+              <div class="member-image">
+                <img src="assets/img/person/person-f-13.webp" class="img-fluid" alt="" loading="lazy">
+                <div class="social-overlay">
+                  <div class="social-icons">
+                    <a href="#"><i class="bi bi-linkedin"></i></a>
+                    <a href="#"><i class="bi bi-twitter-x"></i></a>
+                    <a href="#"><i class="bi bi-instagram"></i></a>
+                  </div>
+                </div>
+              </div>
+              <div class="member-info">
+                <h4>Lisa Chang</h4>
+                <span>Marketing Lead</span>
+                <p>Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim id est
+                  laborum.</p>
+              </div>
+            </div><!-- End Team Member -->
+          </div>
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+            <div class="team-member">
+              <div class="member-image">
+                <img src="assets/img/person/person-m-15.webp" class="img-fluid" alt="" loading="lazy">
+                <div class="social-overlay">
+                  <div class="social-icons">
+                    <a href="#"><i class="bi bi-linkedin"></i></a>
+                    <a href="#"><i class="bi bi-twitter-x"></i></a>
+                    <a href="#"><i class="bi bi-instagram"></i></a>
+                  </div>
+                </div>
+              </div>
+              <div class="member-info">
+                <h4>Ryan Cooper</h4>
+                <span>Software Engineer</span>
+                <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum
+                  deleniti atque.</p>
+              </div>
+            </div><!-- End Team Member -->
+          </div>
+
+        </div>
+
+      </div>
+
+    </section><!-- /Team Section -->
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing section">
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <span class="description-title">Pricing</span>
+        <h2>Pricing</h2>
+        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="row g-4">
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="pricing-card">
+              <div class="pricing-header">
+                <h3>Basic</h3>
+                <div class="price">
+                  <span class="currency">$</span>
+                  <span class="amount">19</span>
+                  <span class="period">/ month</span>
+                </div>
+              </div>
+              <ul class="features-list">
+                <li><i class="bi bi-check-circle-fill"></i> Donec volutpat metus in erat</li>
+                <li><i class="bi bi-check-circle-fill"></i> Vestibulum ut erat consectetur</li>
+                <li><i class="bi bi-check-circle-fill"></i> Curabitur pretium orci sed metus</li>
+                <li class="disabled"><i class="bi bi-x-circle-fill"></i> Vivamus tincidunt risus ipsum</li>
+                <li class="disabled"><i class="bi bi-x-circle-fill"></i> Nullam lobortis nulla in diam</li>
+              </ul>
+              <div class="text-center">
+                <a href="#" class="btn btn-primary">Choose Plan</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
+            <div class="pricing-card featured">
+              <div class="pricing-header">
+                <h3>Pro</h3>
+                <div class="price">
+                  <span class="currency">$</span>
+                  <span class="amount">49</span>
+                  <span class="period">/ month</span>
+                </div>
+              </div>
+              <ul class="features-list">
+                <li><i class="bi bi-check-circle-fill"></i> Donec volutpat metus in erat</li>
+                <li><i class="bi bi-check-circle-fill"></i> Vestibulum ut erat consectetur</li>
+                <li><i class="bi bi-check-circle-fill"></i> Curabitur pretium orci sed metus</li>
+                <li><i class="bi bi-check-circle-fill"></i> Vivamus tincidunt risus ipsum</li>
+                <li class="disabled"><i class="bi bi-x-circle-fill"></i> Nullam lobortis nulla in diam</li>
+              </ul>
+              <div class="text-center">
+                <a href="#" class="btn btn-primary">Choose Plan</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="400">
+            <div class="pricing-card">
+              <div class="pricing-header">
+                <h3>Enterprise</h3>
+                <div class="price">
+                  <span class="currency">$</span>
+                  <span class="amount">99</span>
+                  <span class="period">/ month</span>
+                </div>
+              </div>
+              <ul class="features-list">
+                <li><i class="bi bi-check-circle-fill"></i> Donec volutpat metus in erat</li>
+                <li><i class="bi bi-check-circle-fill"></i> Vestibulum ut erat consectetur</li>
+                <li><i class="bi bi-check-circle-fill"></i> Curabitur pretium orci sed metus</li>
+                <li><i class="bi bi-check-circle-fill"></i> Vivamus tincidunt risus ipsum</li>
+                <li><i class="bi bi-check-circle-fill"></i> Nullam lobortis nulla in diam</li>
+              </ul>
+              <div class="text-center">
+                <a href="#" class="btn btn-primary">Choose Plan</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section><!-- /Pricing Section -->
+
+    <!-- Faq Section -->
+    <section id="faq" class="faq section">
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row justify-content-center">
+          <div class="col-lg-10">
+
+            <div class="faq-wrapper">
+
+              <div class="faq-item faq-active">
+                <div class="faq-header">
+                  <div class="faq-icon">
+                    <i class="bi bi-question-circle"></i>
+                  </div>
+                  <h4>Mauris blandit aliquet elit, eget tincidunt nibh pulvinar?</h4>
+                  <div class="faq-toggle">
+                    <i class="bi bi-plus"></i>
+                    <i class="bi bi-dash"></i>
+                  </div>
+                </div>
+                <div class="faq-content">
+                  <div class="content-inner">
+                    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+                      Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante.</p>
+                  </div>
+                </div>
+              </div><!-- End FAQ Item -->
+
+              <div class="faq-item">
+                <div class="faq-header">
+                  <div class="faq-icon">
+                    <i class="bi bi-question-circle"></i>
+                  </div>
+                  <h4>Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem?</h4>
+                  <div class="faq-toggle">
+                    <i class="bi bi-plus"></i>
+                    <i class="bi bi-dash"></i>
+                  </div>
+                </div>
+                <div class="faq-content">
+                  <div class="content-inner">
+                    <p>Donec rutrum congue leo eget malesuada. Sed porttitor lectus nibh. Vestibulum ac diam sit amet
+                      quam vehicula elementum sed sit amet dui. Proin eget tortor risus. Curabitur aliquet quam id dui
+                      posuere blandit.</p>
+                  </div>
+                </div>
+              </div><!-- End FAQ Item -->
+
+              <div class="faq-item">
+                <div class="faq-header">
+                  <div class="faq-icon">
+                    <i class="bi bi-question-circle"></i>
+                  </div>
+                  <h4>Vestibulum ante ipsum primis in faucibus orci luctus?</h4>
+                  <div class="faq-toggle">
+                    <i class="bi bi-plus"></i>
+                    <i class="bi bi-dash"></i>
+                  </div>
+                </div>
+                <div class="faq-content">
+                  <div class="content-inner">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                      labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
+                    </p>
+                  </div>
+                </div>
+              </div><!-- End FAQ Item -->
+
+              <div class="faq-item">
+                <div class="faq-header">
+                  <div class="faq-icon">
+                    <i class="bi bi-question-circle"></i>
+                  </div>
+                  <h4>Nulla facilisi morbi tempus iaculis urna id volutpat?</h4>
+                  <div class="faq-toggle">
+                    <i class="bi bi-plus"></i>
+                    <i class="bi bi-dash"></i>
+                  </div>
+                </div>
+                <div class="faq-content">
+                  <div class="content-inner">
+                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.
+                      Totam rem aperiam, eaque ipsa quae ab illo inventore veritatis.</p>
+                  </div>
+                </div>
+              </div><!-- End FAQ Item -->
+
+              <div class="faq-item">
+                <div class="faq-header">
+                  <div class="faq-icon">
+                    <i class="bi bi-question-circle"></i>
+                  </div>
+                  <h4>Praesent sapien massa, convallis a pellentesque nec?</h4>
+                  <div class="faq-toggle">
+                    <i class="bi bi-plus"></i>
+                    <i class="bi bi-dash"></i>
+                  </div>
+                </div>
+                <div class="faq-content">
+                  <div class="content-inner">
+                    <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum
+                      deleniti atque corrupti quos dolores et quas molestias excepturi sint.</p>
+                  </div>
+                </div>
+              </div><!-- End FAQ Item -->
+
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </section><!-- /Faq Section -->
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact section">
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <span class="description-title">Contact</span>
+        <h2>Contact</h2>
+        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+        <div class="contact-wrapper">
+          <div class="contact-info-panel">
+            <div class="contact-info-header">
+              <h3>Contact Information</h3>
+              <p>Dignissimos deleniti accusamus rerum voluptate. Dignissimos rerum sit maiores reiciendis voluptate
+                inventore ut.</p>
+            </div>
+
+            <div class="contact-info-cards">
+              <div class="info-card">
+                <div class="icon-container">
+                  <i class="bi bi-pin-map-fill"></i>
+                </div>
+                <div class="card-content">
+                  <h4>Our Location</h4>
+                  <p>4952 Hilltop Dr, Anytown, CA 90210</p>
+                </div>
+              </div>
+
+              <div class="info-card">
+                <div class="icon-container">
+                  <i class="bi bi-envelope-open"></i>
+                </div>
+                <div class="card-content">
+                  <h4>Email Us</h4>
+                  <p>info@example.com</p>
+                </div>
+              </div>
+
+              <div class="info-card">
+                <div class="icon-container">
+                  <i class="bi bi-telephone-fill"></i>
+                </div>
+                <div class="card-content">
+                  <h4>Call Us</h4>
+                  <p>+1 (555) 123-4567</p>
+                </div>
+              </div>
+
+              <div class="info-card">
+                <div class="icon-container">
+                  <i class="bi bi-clock-history"></i>
+                </div>
+                <div class="card-content">
+                  <h4>Working Hours</h4>
+                  <p>Monday-Saturday: 9AM - 7PM</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="social-links-panel">
+              <h5>Follow Us</h5>
+              <div class="social-icons">
+                <a href="#"><i class="bi bi-facebook"></i></a>
+                <a href="#"><i class="bi bi-twitter-x"></i></a>
+                <a href="#"><i class="bi bi-instagram"></i></a>
+                <a href="#"><i class="bi bi-linkedin"></i></a>
+                <a href="#"><i class="bi bi-youtube"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-form-panel">
+            <div class="map-container">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d48389.78314118045!2d-74.006138!3d40.710059!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a22a3bda30d%3A0xb89d1fe6bc499443!2sDowntown%20Conference%20Center!5e0!3m2!1sen!2sus!4v1676961268712!5m2!1sen!2sus"
+                width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+
+            <div class="form-container">
+              <h3>Send Us a Message</h3>
+              <p>Lorem ipsum dolor sit amet consectetur adipiscing elit mauris hendrerit faucibus imperdiet nec eget
+                felis.</p>
+
+              <form action="forms/contact.php" method="post" class="php-email-form">
+                <div class="form-floating mb-3">
+                  <input type="text" class="form-control" id="nameInput" name="name" placeholder="Full Name"
+                    required="">
+                  <label for="nameInput">Full Name</label>
+                </div>
+
+                <div class="form-floating mb-3">
+                  <input type="email" class="form-control" id="emailInput" name="email" placeholder="Email Address"
+                    required="">
+                  <label for="emailInput">Email Address</label>
+                </div>
+
+                <div class="form-floating mb-3">
+                  <input type="text" class="form-control" id="subjectInput" name="subject" placeholder="Subject"
+                    required="">
+                  <label for="subjectInput">Subject</label>
+                </div>
+
+                <div class="form-floating mb-3">
+                  <textarea class="form-control" id="messageInput" name="message" rows="5" placeholder="Your Message"
+                    style="height: 150px" required=""></textarea>
+                  <label for="messageInput">Your Message</label>
+                </div>
+
+                <div class="my-3">
+                  <div class="loading">Loading</div>
+                  <div class="error-message"></div>
+                  <div class="sent-message">Your message has been sent. Thank you!</div>
+                </div>
+
+                <div class="d-grid">
+                  <button type="submit" class="btn-submit">Send Message <i class="bi bi-send-fill ms-2"></i></button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section><!-- /Contact Section -->
+
+  </main>
+
+  <footer id="footer" class="footer light-background">
+
+    <div class="container">
+      <div class="row gy-3">
+        <div class="col-lg-3 col-md-6 d-flex">
+          <i class="bi bi-geo-alt icon"></i>
+          <div class="address">
+            <h4>Address</h4>
+            <p>A108 Adam Street</p>
+            <p>New York, NY 535022</p>
+            <p></p>
+          </div>
+
+        </div>
+
+        <div class="col-lg-3 col-md-6 d-flex">
+          <i class="bi bi-telephone icon"></i>
+          <div>
+            <h4>Contact</h4>
+            <p>
+              <strong>Phone:</strong> <span>+1 5589 55488 55</span><br>
+              <strong>Email:</strong> <span>info@example.com</span><br>
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6 d-flex">
+          <i class="bi bi-clock icon"></i>
+          <div>
+            <h4>Opening Hours</h4>
+            <p>
+              <strong>Mon-Sat:</strong> <span>11AM - 23PM</span><br>
+              <strong>Sunday</strong>: <span>Closed</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-6">
+          <h4>Follow Us</h4>
+          <div class="social-links d-flex">
+            <a href="#" class="twitter"><i class="bi bi-twitter-x"></i></a>
+            <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+
 </body>
+
 </html>
