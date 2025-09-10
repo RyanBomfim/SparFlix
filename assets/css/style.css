@@ -1,27 +1,40 @@
 /* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 :root {
-  --default-font: "Roboto",  system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --heading-font: "Montserrat",  sans-serif;
-  --nav-font: "Inter",  sans-serif;
+  --default-font: "Roboto", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --heading-font: "Montserrat", sans-serif;
+  --nav-font: "Inter", sans-serif;
 }
 
 /* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
 :root {
-  --default-color: rgba(255, 255, 255, 0.8); /* Default color used for the majority of the text content across the entire website */
-  --heading-color: #ffffff; /* Color for headings, subheadings and title throughout the website */
-  --accent-color: #ff7b00; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
-  --surface-color: #1f1f23; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
-  --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
+  --default-color: rgba(255, 255, 255, 0.8);
+  /* Default color used for the majority of the text content across the entire website */
+  --heading-color: #ffffff;
+  /* Color for headings, subheadings and title throughout the website */
+  --accent-color: #ff7b00;
+  /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
+  --surface-color: #1f1f23;
+  /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
+  --contrast-color: #ffffff;
+  /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
 }
 
 /* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
 :root {
-  --nav-color: rgba(255, 255, 255, 0.8);  /* The default color of the main navmenu links */
-  --nav-hover-color: #008870; /* Applied to main navmenu links when they are hovered over or active */
-  --nav-mobile-background-color: #1f1f23; /* Used as the background color for mobile navigation menu */
-  --nav-dropdown-background-color: #1f1f23; /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
-  --nav-dropdown-color: rgba(255, 255, 255, 0.8); /* Used for navigation links of the dropdown items in the navigation menu. */
-  --nav-dropdown-hover-color: #008870; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
+  --nav-color: rgba(255, 255, 255, 0.8);
+  /* The default color of the main navmenu links */
+  --nav-hover-color: #ff7b00;
+  /* Applied to main navmenu links when they are hovered over or active */
+  --nav-mobile-background-color: #1f1f23;
+  /* Used as the background color for mobile navigation menu */
+  --nav-dropdown-background-color: #1f1f23;
+  /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
+  --nav-dropdown-color: rgba(255, 255, 255, 0.8);
+  /* Used for navigation links of the dropdown items in the navigation menu. */
+  --nav-dropdown-hover-color: #ff7b00;
+  /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
 }
 
 /* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
@@ -49,17 +62,15 @@
 --------------------------------------------------------------*/
 body {
   color: var(--default-color);
-  font-family: var(--default-font);
+  font-family: "Open Sans", var(--default-font);
   /* Overlay escuro + imagem de fundo */
-  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
-                    url("https://wallpaperaccess.com/full/9794.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("https://wallpaperaccess.com/full/9794.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
 }
-
-
 
 a {
   color: var(--accent-color);
@@ -79,7 +90,6 @@ h4,
 h5,
 h6 {
   color: var(--heading-color);
-  font-family: var(--heading-font);
 }
 
 /* PHP Email Form Messages
@@ -207,118 +217,100 @@ h6 {
 .scrolled .header {
   --background-color: rgba(7, 7, 8, 0.8);
 }
-
 /*--------------------------------------------------------------
 # Navigation Menu
 --------------------------------------------------------------*/
-/* Navmenu - Desktop */
+
+/* =============================
+   Navmenu - Desktop
+============================= */
 @media (min-width: 1200px) {
   .navmenu {
     padding: 0;
+    font-family: "Open Sans", var(--nav-font);
   }
 
   .navmenu ul {
-    margin: 0;
-    padding: 0;
-    display: flex;
-    list-style: none;
-    align-items: center;
-  }
+  margin: 0;
+  padding: 0;
+  display: flex;
+  list-style: none;
+  align-items: center;
+  gap: 25px; /* controla o espaçamento entre os itens */
+}
 
-  .navmenu li {
-    position: relative;
-  }
+.navmenu li a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 0; /* padding só vertical */
+  font: 400 16px ;
+  color: var(--nav-color);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 0.3s ease;
+}
 
-  .navmenu a,
-  .navmenu a:focus {
-    color: var(--nav-color);
-    padding: 18px 15px;
-    font-size: 16px;
-    font-family: var(--nav-font);
-    font-weight: 400;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    white-space: nowrap;
-    transition: 0.3s;
-  }
-
-  .navmenu a i,
-  .navmenu a:focus i {
-    font-size: 12px;
-    line-height: 0;
-    margin-left: 5px;
-    transition: 0.3s;
-  }
 
   .navmenu li:last-child a {
     padding-right: 0;
   }
 
-  .navmenu li:hover>a,
-  .navmenu .active,
-  .navmenu .active:focus {
-    color: var(--nav-hover-color);
+  .navmenu a {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 25px;
+    font: 400 16px ;
+    color: var(--nav-color);
+    text-decoration: none;
+    white-space: nowrap;
+    transition: color 0.3s ease;
   }
 
-  .navmenu .dropdown ul {
-    margin: 0;
-    padding: 10px 0;
-    background: var(--nav-dropdown-background-color);
-    display: block;
-    position: absolute;
-    visibility: hidden;
-    left: 14px;
-    top: 130%;
-    opacity: 0;
-    transition: 0.3s;
-    border-radius: 4px;
-    z-index: 99;
-    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);
-  }
-
-  .navmenu .dropdown ul li {
-    min-width: 200px;
-  }
-
-  .navmenu .dropdown ul a {
-    padding: 10px 20px;
-    font-size: 15px;
-    text-transform: none;
-    color: var(--nav-dropdown-color);
-  }
-
-  .navmenu .dropdown ul a i {
+  .navmenu a i {
     font-size: 12px;
+    line-height: 0;
+    transition: 0.3s;
   }
 
-  .navmenu .dropdown ul a:hover,
-  .navmenu .dropdown ul .active:hover,
-  .navmenu .dropdown ul li:hover>a {
-    color: var(--nav-dropdown-hover-color);
+  /* Linha animada */
+  .navmenu li > a {
+    position: relative;
   }
+.navmenu li > a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -3px;
+  width: 0;
+  height: 2px;
+  background-color: var(--nav-hover-color, #ff0000);
+  transform: translateX(-50%) scaleX(0);
+  transform-origin: center;
+  transition: all 0.3s ease;
+}
 
-  .navmenu .dropdown:hover>ul {
-    opacity: 1;
-    top: 100%;
-    visibility: visible;
-  }
+/* Quando ativo ou hover */
+.navmenu li:hover > a::after,
+.navmenu .active::after,
+.navmenu .active:focus::after {
+  width: calc(100% + 10px); /* passa 5px pra cada lado */
+  transform: translateX(-50%) scaleX(1);
+}
 
-  .navmenu .dropdown .dropdown ul {
-    top: 0;
-    left: -90%;
-    visibility: hidden;
-  }
 
-  .navmenu .dropdown .dropdown:hover>ul {
-    opacity: 1;
-    top: 0;
-    left: -100%;
-    visibility: visible;
+  .navmenu li:hover > a::after,
+  .navmenu .active::after,
+  .navmenu .active:focus::after {
+    width: 100%;
+    transform: translateX(-50%) scaleX(1);
   }
 }
 
-/* Navmenu - Mobile */
+/* =============================
+   Navmenu - Mobile
+============================= */
 @media (max-width: 1199px) {
   .mobile-nav-toggle {
     color: var(--nav-color);
@@ -339,47 +331,42 @@ h6 {
     list-style: none;
     position: absolute;
     inset: 60px 20px 20px 20px;
-    padding: 10px 0;
     margin: 0;
+    padding: 10px 0;
     border-radius: 6px;
     background-color: var(--nav-mobile-background-color);
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);
     overflow-y: auto;
     transition: 0.3s;
     z-index: 9998;
-    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);
   }
 
-  .navmenu a,
-  .navmenu a:focus {
-    color: var(--nav-dropdown-color);
-    padding: 10px 20px;
-    font-family: var(--nav-font);
-    font-size: 17px;
-    font-weight: 500;
+  .navmenu a {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 10px 20px;
+    font: 500 17px var(--nav-font);
+    color: var(--nav-dropdown-color);
     white-space: nowrap;
     transition: 0.3s;
   }
 
-  .navmenu a i,
-  .navmenu a:focus i {
-    font-size: 12px;
-    line-height: 0;
-    margin-left: 5px;
-    width: 30px;
-    height: 30px;
+  .navmenu a i {
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 30px;
+    height: 30px;
+    margin-left: 5px;
+    font-size: 12px;
+    line-height: 0;
     border-radius: 50%;
     transition: 0.3s;
     background-color: color-mix(in srgb, var(--accent-color), transparent 90%);
   }
 
-  .navmenu a i:hover,
-  .navmenu a:focus i:hover {
+  .navmenu a i:hover {
     background-color: var(--accent-color);
     color: var(--contrast-color);
   }
@@ -397,53 +384,56 @@ h6 {
     transform: rotate(180deg);
   }
 
+  /* Dropdown interno */
   .navmenu .dropdown ul {
-    position: static;
     display: none;
-    z-index: 99;
-    padding: 10px 0;
+    position: static;
     margin: 10px 20px;
+    padding: 10px 0;
     background-color: var(--nav-dropdown-background-color);
     border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
     box-shadow: none;
     transition: all 0.5s ease-in-out;
+    z-index: 99;
   }
 
   .navmenu .dropdown ul ul {
     background-color: rgba(33, 37, 41, 0.1);
   }
 
-  .navmenu .dropdown>.dropdown-active {
+  .navmenu .dropdown > .dropdown-active {
     display: block;
     background-color: rgba(33, 37, 41, 0.03);
   }
 
+  /* Estado ativo do menu */
   .mobile-nav-active {
     overflow: hidden;
   }
 
   .mobile-nav-active .mobile-nav-toggle {
-    color: #fff;
     position: absolute;
-    font-size: 32px;
     top: 15px;
     right: 15px;
-    margin-right: 0;
     z-index: 9999;
+    margin-right: 0;
+    font-size: 32px;
+    color: #fff;
   }
 
   .mobile-nav-active .navmenu {
     position: fixed;
-    overflow: hidden;
     inset: 0;
+    overflow: hidden;
     background: rgba(33, 37, 41, 0.8);
     transition: 0.3s;
   }
 
-  .mobile-nav-active .navmenu>ul {
+  .mobile-nav-active .navmenu > ul {
     display: block;
   }
 }
+
 
 /*--------------------------------------------------------------
 # Global Footer
@@ -663,7 +653,7 @@ section,
 .section-title span {
   position: absolute;
   top: 4px;
-  color: color-mix(in srgb, var(--heading-color), transparent 95%);
+  color: color-mix(in srgb, var(--heading-color), transparent 80%);
   left: 0;
   right: 0;
   z-index: 1;
@@ -870,8 +860,8 @@ section,
 
 .hero .hero-image-container .hero-image .image-decoration {
   position: absolute;
-  top: -20px;
-  right: -20px;
+  top: -10px;
+  right: -10px;
   width: 80px;
   height: 80px;
   background: linear-gradient(45deg, var(--accent-color), color-mix(in srgb, var(--accent-color), #fff 30%));
@@ -886,9 +876,14 @@ section,
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 40px;
-  height: 40px;
-  border: 3px solid var(--contrast-color);
+  width: 60px;
+  height: 60px;
+  background-image: url('../img/logo.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-size: 100%;
   border-radius: 50%;
 }
 
