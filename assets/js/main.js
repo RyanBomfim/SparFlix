@@ -1,10 +1,3 @@
-/**
-* Template Name: Nexa
-* Template URL: https://bootstrapmade.com/nexa-bootstrap-agency-template/
-* Updated: Aug 19 2025 with Bootstrap v5.3.7
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
 
 (function() {
   "use strict";
