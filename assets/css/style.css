@@ -60,16 +60,9 @@
 /*--------------------------------------------------------------
 # General Styling & Shared Classes
 --------------------------------------------------------------*/
-
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
-
-body {
-  font-family: 'Raleway', sans-serif;
-}
-
-
 body {
   color: var(--default-color);
+  font-family: "Open Sans", var(--default-font);
   /* Overlay escuro + imagem de fundo */
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url("https://wallpaperaccess.com/full/9794.jpg");
@@ -3030,6 +3023,25 @@ section,
 /*--------------------------------------------------------------
 # Starter Section Section
 --------------------------------------------------------------*/
-.starter-section {
-  /* Add your styles here */
+.section-videos-filmes {
+
+    .video-container {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%; /* 16:9 */
+      margin: 20px 0;
+    }
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    .controls {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
 }

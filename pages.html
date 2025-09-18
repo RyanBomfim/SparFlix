@@ -1,132 +1,167 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sparflix</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
-  <style>
-    body {
-      background-color: #0a0a0a;
-      color: #fff;
-    }
-    header {
-      background-color: #1a1a1a;
-      padding: 15px 0;
-      text-align: center;
-    }
-    header h1 {
-      color: #ffcc00;
-    }
-    .video-container {
-      position: relative;
-      width: 100%;
-      padding-bottom: 56.25%; /* 16:9 */
-      margin: 20px 0;
-    }
-    .video-container iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
-    .controls {
-      text-align: center;
-      margin-bottom: 40px;
-    }
-    footer {
-      background-color: #1a1a1a;
-      text-align: center;
-      padding: 15px 0;
-      color: #888;
-    }
-  </style>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Home - Sparflix</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <!-- Favicons -->
+  <link href="assets/img/logo.png" rel="icon">
+  <link href="assets/img/logo.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+
 </head>
+
 <body>
 
   <!-- Cabeçalho -->
-  <header>
-    <h1>Sparflix - Dragon Ball</h1>
+  <header id="header" class="header d-flex align-items-center sticky-top">
+    <div class="container position-relative d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center justify-content-center me-auto me-xl-0">
+        <img src="assets/img/logo.png" alt="">
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="#hero" class="active">Home</a></li>
+          <li><a href="about.html">Sobre</a></li>
+          <li><a href="pages.html">Filmes</a></li>
+          <li><a href="notices.html">Notícias</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+      <div class="header-social-links">
+        <a href="ryanocbomfim@gmail.com" class="gmail"><i class="bi bi-google"></i></a>
+        <a href="https://www.instagram.com/iam.ryan10" class="instagram"><i class="bi bi-instagram"></i></a>
+        <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+      </div>
+
+    </div>
   </header>
 
-  <!-- Vídeo -->
-  <div class="container">
-    <div class="video-container" id="videoPlayer">
-      <!-- iframe inicial será carregado pelo JS -->
+  <!-- Pesquisa -->
+  <section class="py-4 bg-dark text-white">
+    <div class="container text-center">
+      <h2>Pesquisar Filmes</h2>
+      <input type="text" id="searchInput" class="form-control mt-3" placeholder="Digite o nome do filme...">
     </div>
+  </section>
 
-    <!-- Controles -->
-    <div class="controls">
-      <button class="btn btn-warning" onclick="previousVideo()">Anterior</button>
-      <button class="btn btn-warning" onclick="nextVideo()">Próximo</button>
+  <!-- Player (só aparece quando clicar em um card) -->
+  <section class="container my-4 player-section" id="playerSection" style="display:none;">
+    <div class="video-container" id="videoPlayer"></div>
+    <h3 id="playerTitulo" class="mt-3"></h3>
+    <p id="playerDescricao"></p>
+  </section>
+
+  <!-- Catálogo de filmes -->
+  <section class="py-3">
+    <div class="container">
+      <div class="row" id="filmesContainer"></div>
     </div>
-  </div>
+  </section>
 
   <!-- Footer -->
-  <footer>
+  <footer class="text-center py-3 bg-dark text-white">
     &copy; 2025 Sparflix. Todos os direitos reservados.
   </footer>
 
   <!-- Script -->
   <script>
-    const videos = [
-      '<iframe src="https://www.youtube.com/embed/O6tXYPUfC8A" allowfullscreen></iframe>',
-      '<iframe src="https://www.youtube.com/embed/XGSy3_Czz8k" allowfullscreen></iframe>',
-      '<iframe src="https://www.youtube.com/embed/rN9gImAMMBc?si=SRR-CT5ccwkRao5h" allowfullscreen></iframe>'
+    const filmes = [
+      {
+        titulo: "Dragon Ball Z: Broly o Lendário Super Saiyajin (1993)",
+        descricao: "Broly, o Saiyajin lendário, desperta para uma batalha devastadora.",
+        imagem: "https://img.youtube.com/vi/O6tXYPUfC8A/mqdefault.jpg",
+        video: '<iframe width="100%" height="450" src="https://www.youtube.com/embed/O6tXYPUfC8A" allowfullscreen></iframe>'
+      },
+      {
+        titulo: "Dragon Ball Z: O Homem Mais Forte do Mundo (1990)",
+        descricao: "Dr. Wheelo procura o corpo mais forte para dominar o mundo.",
+        imagem: "https://img.youtube.com/vi/XGSy3_Czz8k/mqdefault.jpg",
+        video: '<iframe width="100%" height="450" src="https://www.youtube.com/embed/XGSy3_Czz8k" allowfullscreen></iframe>'
+      },
+      {
+        titulo: "Dragon Ball Z: A Árvore do Poder (1990)",
+        descricao: "Turles planta a Árvore do Poder para consumir toda a energia da Terra.",
+        imagem: "https://img.youtube.com/vi/rN9gImAMMBc/mqdefault.jpg",
+        video: '<iframe width="100%" height="450" src="https://www.youtube.com/embed/rN9gImAMMBc?si=SRR-CT5ccwkRao5h" allowfullscreen></iframe>'
+      }
     ];
 
+    const searchInput = document.getElementById("searchInput");
+    const filmesContainer = document.getElementById("filmesContainer");
+    const playerSection = document.getElementById("playerSection");
+    const videoPlayer = document.getElementById("videoPlayer");
+    const playerTitulo = document.getElementById("playerTitulo");
+    const playerDescricao = document.getElementById("playerDescricao");
 
-const titulos = [
-  "Dragon Ball Z:  Broly o Lendario Super Saiyajin (1993)",
-  "Dragon Ball Z: O Homem Mais Forte do Mundo (1990)",
-  "Dragon Ball Z: A Árvore do Poder (1990)",
-  "Dragon Ball Z: Goku, o Super Saiyajin (1991)",
-  "Dragon Ball Z: A Vingança de Cooler (1991)",
-  "Dragon Ball Z: O Retorno de Cooler (1992)",
-  "Dragon Ball Z: O Retorno dos Andróides (1992)",
-  "Dragon Ball Z: O Poder Invencível (1993)",
-  "Dragon Ball Z: Batalha nos Dois Mundos (1993)",
-  "Dragon Ball Z: A Volta do Guerreiro (Bio-Broly) (1994)",
-  "Dragon Ball Z: O Combate Final (Fusão) (1995)",
-  "Dragon Ball Z: O Golpe do Dragão (1995)",
-  "Dragon Ball Z: A Batalha dos Deuses (2013)",
-  "Dragon Ball Z: O Renascimento de Freeza (2015)"
-];
+    // Renderizar os cards
+    function renderFilmes(lista) {
+      filmesContainer.innerHTML = "";
+      lista.forEach((filme, index) => {
+        const col = document.createElement("div");
+        col.classList.add("col-md-4", "mb-3");
 
+        col.innerHTML = `
+          <div class="card h-100 bg-dark text-white" data-index="${index}" style="cursor:pointer;">
+            <img src="${filme.imagem}" class="card-img-top" alt="${filme.titulo}">
+            <div class="card-body">
+              <h5 class="card-title">${filme.titulo}</h5>
+              <p class="card-text">${filme.descricao}</p>
+            </div>
+          </div>
+        `;
 
-    let currentIndex = 0;
-    const videoPlayer = document.getElementById('videoPlayer');
-    const header = document.querySelector("header h1");
+        // Clique → mostrar player
+        col.addEventListener("click", () => {
+          videoPlayer.innerHTML = filme.video;
+          playerTitulo.textContent = filme.titulo;
+          playerDescricao.textContent = filme.descricao;
+          playerSection.style.display = "block";
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        });
 
-    // Função para carregar o vídeo
-    function carregarVideo() {
-      videoPlayer.innerHTML = videos[currentIndex];
-      header.innerText = "Sparflix - Dragon Ball | " + titulos[currentIndex];
+        filmesContainer.appendChild(col);
+      });
     }
 
-    function nextVideo() {
-      if (currentIndex < videos.length - 1) {
-        currentIndex++;
-        carregarVideo();
-      } else {
-        alert("Você já está no último episódio!");
-      }
-    }
+    // Filtro de pesquisa
+    searchInput.addEventListener("input", () => {
+      const termo = searchInput.value.toLowerCase();
+      const filtrados = filmes.filter(f =>
+        f.titulo.toLowerCase().includes(termo)
+      );
+      renderFilmes(filtrados.length > 0 ? filtrados : filmes);
+    });
 
-    function previousVideo() {
-      if (currentIndex > 0) {
-        currentIndex--;
-        carregarVideo();
-      } else {
-        alert("Você já está no primeiro episódio!");
-      }
-    }
-
-    // Carregar o primeiro vídeo ao abrir a página
-    carregarVideo();
+    // Inicial: mostra todos
+    renderFilmes(filmes);
   </script>
 
 </body>
