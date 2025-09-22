@@ -47,9 +47,9 @@
 
       <nav id="navmenu" class="navmenu">
         <ul>
-          <li><a href="#hero" class="active">Home</a></li>
+          <li><a href="index.html">Home</a></li>
           <li><a href="about.html">Sobre</a></li>
-          <li><a href="pages.html">Filmes</a></li>
+          <li><a href="movies.html" class="active">Filmes</a></li>
           <li><a href="notices.html">Notícias</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
@@ -65,7 +65,7 @@
   </header>
 
   <!-- Pesquisa -->
-  <section class="py-4 bg-dark text-white">
+  <section class="py-4 ">
     <div class="container text-center">
       <h2>Pesquisar Filmes</h2>
       <input type="text" id="searchInput" class="form-control mt-3" placeholder="Digite o nome do filme...">
@@ -93,76 +93,94 @@
 
   <!-- Script -->
   <script>
-    const filmes = [
-      {
-        titulo: "Dragon Ball Z: Broly o Lendário Super Saiyajin (1993)",
-        descricao: "Broly, o Saiyajin lendário, desperta para uma batalha devastadora.",
-        imagem: "https://img.youtube.com/vi/O6tXYPUfC8A/mqdefault.jpg",
-        video: '<iframe width="100%" height="450" src="https://www.youtube.com/embed/O6tXYPUfC8A" allowfullscreen></iframe>'
-      },
-      {
-        titulo: "Dragon Ball Z: O Homem Mais Forte do Mundo (1990)",
-        descricao: "Dr. Wheelo procura o corpo mais forte para dominar o mundo.",
-        imagem: "https://img.youtube.com/vi/XGSy3_Czz8k/mqdefault.jpg",
-        video: '<iframe width="100%" height="450" src="https://www.youtube.com/embed/XGSy3_Czz8k" allowfullscreen></iframe>'
-      },
-      {
-        titulo: "Dragon Ball Z: A Árvore do Poder (1990)",
-        descricao: "Turles planta a Árvore do Poder para consumir toda a energia da Terra.",
-        imagem: "https://img.youtube.com/vi/rN9gImAMMBc/mqdefault.jpg",
-        video: '<iframe width="100%" height="450" src="https://www.youtube.com/embed/rN9gImAMMBc?si=SRR-CT5ccwkRao5h" allowfullscreen></iframe>'
-      }
-    ];
-
-    const searchInput = document.getElementById("searchInput");
-    const filmesContainer = document.getElementById("filmesContainer");
-    const playerSection = document.getElementById("playerSection");
-    const videoPlayer = document.getElementById("videoPlayer");
-    const playerTitulo = document.getElementById("playerTitulo");
-    const playerDescricao = document.getElementById("playerDescricao");
-
-    // Renderizar os cards
-    function renderFilmes(lista) {
-      filmesContainer.innerHTML = "";
-      lista.forEach((filme, index) => {
-        const col = document.createElement("div");
-        col.classList.add("col-md-4", "mb-3");
-
-        col.innerHTML = `
-          <div class="card h-100 bg-dark text-white" data-index="${index}" style="cursor:pointer;">
-            <img src="${filme.imagem}" class="card-img-top" alt="${filme.titulo}">
-            <div class="card-body">
-              <h5 class="card-title">${filme.titulo}</h5>
-              <p class="card-text">${filme.descricao}</p>
-            </div>
-          </div>
-        `;
-
-        // Clique → mostrar player
-        col.addEventListener("click", () => {
-          videoPlayer.innerHTML = filme.video;
-          playerTitulo.textContent = filme.titulo;
-          playerDescricao.textContent = filme.descricao;
-          playerSection.style.display = "block";
-          window.scrollTo({ top: 0, behavior: "smooth" });
-        });
-
-        filmesContainer.appendChild(col);
-      });
+  const filmes = [
+    {
+      titulo: "Dragon Ball Z: Broly o Lendário Super Saiyajin (1993)",
+      descricao: "Broly, o Saiyajin lendário, desperta para uma batalha devastadora.",
+      imagem: "https://img.youtube.com/vi/O6tXYPUfC8A/mqdefault.jpg",
+      video: '<iframe width="100%" height="450" src="https://www.youtube.com/embed/O6tXYPUfC8A" allowfullscreen></iframe>',
+      duracao: "1:10:00"
+    },
+    {
+      titulo: "Dragon Ball Z: O Homem Mais Forte do Mundo (1990)",
+      descricao: "Dr. Wheelo procura o corpo mais forte para dominar o mundo.",
+      imagem: "https://img.youtube.com/vi/XGSy3_Czz8k/mqdefault.jpg",
+      video: '<iframe width="100%" height="450" src="https://www.youtube.com/embed/XGSy3_Czz8k" allowfullscreen></iframe>',
+      duracao: "59:00"
+    },
+    {
+      titulo: "Dragon Ball Z: A Árvore do Poder (1990)",
+      descricao: "Turles planta a Árvore do Poder para consumir toda a energia da Terra.",
+      imagem: "https://img.youtube.com/vi/rN9gImAMMBc/mqdefault.jpg",
+      video: '<iframe width="100%" height="450" src="https://www.youtube.com/embed/rN9gImAMMBc?si=SRR-CT5ccwkRao5h" allowfullscreen></iframe>',
+      duracao: "1:05:00"
     }
+  ];
 
-    // Filtro de pesquisa
-    searchInput.addEventListener("input", () => {
-      const termo = searchInput.value.toLowerCase();
-      const filtrados = filmes.filter(f =>
-        f.titulo.toLowerCase().includes(termo)
-      );
-      renderFilmes(filtrados.length > 0 ? filtrados : filmes);
+  const searchInput = document.getElementById("searchInput");
+  const filmesContainer = document.getElementById("filmesContainer");
+  const playerSection = document.getElementById("playerSection");
+  const videoPlayer = document.getElementById("videoPlayer");
+  const playerTitulo = document.getElementById("playerTitulo");
+  const playerDescricao = document.getElementById("playerDescricao");
+
+  // Renderizar os cards
+  function renderFilmes(lista) {
+    filmesContainer.innerHTML = "";
+    lista.forEach((filme, index) => {
+      const col = document.createElement("div");
+      col.classList.add("col-md-4", "mb-3");
+
+      col.innerHTML = `
+        <div class="card h-100 text-white" data-index="${index}" style="cursor:pointer; background-color: transparent; position:relative;">
+          <img src="${filme.imagem}" class="card-img-top" alt="${filme.titulo}">
+          <div class="duration-badge">${filme.duracao}</div>
+          <div class="card-body">
+            <h5 class="card-title">${filme.titulo}</h5>
+            <p class="card-text">${filme.descricao}</p>
+          </div>
+        </div>
+      `;
+
+      // Clique → mostrar player
+      col.addEventListener("click", () => {
+        videoPlayer.innerHTML = filme.video;
+        playerTitulo.textContent = filme.titulo;
+        playerDescricao.textContent = filme.descricao;
+        playerSection.style.display = "block";
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+
+      filmesContainer.appendChild(col);
     });
+  }
 
-    // Inicial: mostra todos
-    renderFilmes(filmes);
-  </script>
+  // Filtro de pesquisa
+  searchInput.addEventListener("input", () => {
+    const termo = searchInput.value.toLowerCase();
+    const filtrados = filmes.filter(f =>
+      f.titulo.toLowerCase().includes(termo)
+    );
+    renderFilmes(filtrados.length > 0 ? filtrados : filmes);
+  });
+
+  // Inicial: mostra todos
+  renderFilmes(filmes);
+</script>
+
+<style>
+  .duration-badge {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    font-size: 12px;
+    padding: 2px 6px;
+    border-radius: 4px;
+  }
+</style>
+
 
 </body>
 </html>
