@@ -80,16 +80,35 @@
   </section>
 
   <!-- Catálogo de filmes -->
-  <section class="py-3">
-    <div class="container">
+ <section class="py-3 filmes-section">
+  <div class="filmes-box">
+    <div class="container p-5">
       <div class="row" id="filmesContainer"></div>
     </div>
-  </section>
+  </div>
+</section>
+<style>/* filmes-box é o bloco central (mesma largura do container) com cantos arredondados */
+.filmes-box {
+  margin: 0 auto;           /* centraliza */
+  max-width: 1140px;        /* ajuste para o mesmo valor do seu .container (bootstrap) */
+  width: 100%;
+  background: #111;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  box-sizing: border-box;
+  min-height: calc(100vh - 120px); /* ajusta conforme header+footer; mude 120px se necessário */
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 50px;    /* espaçamento interno no final */
+}
 
-  <!-- Footer -->
-  <footer class="text-center py-3 bg-dark text-white">
-    &copy; 2025 Sparflix. Todos os direitos reservados.
-  </footer>
+/* mantém o conteúdo em cima do fundo */
+.filmes-box .container {
+  position: relative;
+  z-index: 1;
+}
+</style>
+
 
   <!-- Script -->
   <script>
@@ -132,9 +151,11 @@
       col.classList.add("col-md-4", "mb-3");
 
       col.innerHTML = `
-        <div class="card h-100 text-white" data-index="${index}" style="cursor:pointer; background-color: transparent; position:relative;">
-          <img src="${filme.imagem}" class="card-img-top" alt="${filme.titulo}">
-          <div class="duration-badge">${filme.duracao}</div>
+        <div class="card h-100 text-white" data-index="${index}" style="cursor:pointer; background-color: transparent;">
+          <div class="img-container">
+            <img src="${filme.imagem}" class="card-img-top" alt="${filme.titulo}">
+            <div class="duration-badge">${filme.duracao}</div>
+          </div>
           <div class="card-body">
             <h5 class="card-title">${filme.titulo}</h5>
             <p class="card-text">${filme.descricao}</p>
@@ -169,17 +190,69 @@
 </script>
 
 <style>
+  /* Força todas as thumbs a ficarem no mesmo tamanho */
+  .img-container {
+    position: relative;
+    width: 100%;
+    height: 200px; /* altura fixa */
+    overflow: hidden;
+    border-radius: 6px; /* borda levemente arredondada */
+  }
+
+  .img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* corta proporcionalmente igual ao YouTube */
+    display: block;
+  }
+
+  /* Badge estilo YouTube */
   .duration-badge {
     position: absolute;
-    bottom: 8px;
-    right: 8px;
-    background: rgba(0, 0, 0, 0.8);
+    bottom: 6px;
+    right: 6px;
+    background: rgba(0, 0, 0, 0.9);
     color: #fff;
     font-size: 12px;
-    padding: 2px 6px;
-    border-radius: 4px;
+    font-weight: 500;
+    padding: 2px 4px;
+    border-radius: 2px;
+    line-height: 1;
+  }
+
+  /* Título/descrição com estilo mais limpo */
+  .card-body {
+    padding: 10px 5px;
+  }
+
+  .card-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+    margin: 0 0 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; /* corta título longo */
+  }
+
+  .card-text {
+    font-size: 12px;
+    color: #bbb;
+    height: 32px;
+    overflow: hidden;
+  }
+
+  .card {
+    border: none;
+    background: transparent;
+    transition: transform 0.2s ease-in-out;
+  }
+
+  .card:hover {
+    transform: scale(1.03); /* animação sutil */
   }
 </style>
+
 
 
 </body>
