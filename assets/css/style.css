@@ -3166,3 +3166,104 @@ section,
   transform: scale(1);
   transition: 0s;
 }
+
+/* Movies */
+
+   /* filmes-box é o bloco central */
+    .filmes-box {
+      margin: 0 auto;
+      max-width: 1140px;
+      width: 100%;
+      background: #111;
+      border-top-left-radius: 30px;
+      border-top-right-radius: 30px;
+      box-sizing: border-box;
+      min-height: calc(100vh - 120px); /* ajusta conforme header+footer */
+      display: flex;
+      flex-direction: column;
+      padding-bottom: 50px;
+    }
+
+    /* Força todas as thumbs a ficarem no mesmo tamanho */
+    .img-container {
+      position: relative;
+      width: 100%;
+      height: 200px;
+      overflow: hidden;
+      border-radius: 6px;
+    }
+
+    .img-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Badge estilo YouTube */
+    .duration-badge {
+      position: absolute;
+      bottom: 6px;
+      right: 6px;
+      background: rgba(0, 0, 0, 0.9);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 500;
+      padding: 2px 4px;
+      border-radius: 2px;
+      line-height: 1;
+    }
+
+    .card-body {
+      padding: 10px 5px;
+    }
+
+    .card-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: #fff;
+      margin: 0 0 5px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .card-text {
+      font-size: 12px;
+      color: #bbb;
+      height: 32px;
+      overflow: hidden;
+    }
+
+    .card {
+      border: none;
+      background: transparent;
+      transition: transform 0.2s ease-in-out;
+    }
+
+    .card:hover {
+      transform: scale(1.03);
+    }
+    /* Deixa o input mais estilizado */
+.input-group-text {
+  border: none;
+  border-radius: 0 !important;
+}
+
+#searchInput::placeholder {
+  color: #aaa;
+}
+/* Deixa o input mais estilizado */
+.input-group-text {
+  border: none;
+}
+
+#searchInput::placeholder {
+  color: #aaa;
+}
+.search-section {
+  background: url('assets/img/kamehameha.jpg') no-repeat center center;
+  background-size: cover;  /* cobre toda a largura */
+  color: white;            /* deixa o texto visível */
+}
+

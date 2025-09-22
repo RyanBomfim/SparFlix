@@ -5,11 +5,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sparflix</title>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Home - Sparflix</title>
-  <meta name="description" content="">
-  <meta name="keywords" content="">
 
   <!-- Favicons -->
   <link href="assets/img/logo.png" rel="icon">
@@ -19,9 +14,8 @@
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@400;600;700&family=Inter:wght@400;600;700&display=swap"
     rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -36,11 +30,9 @@
 </head>
 
 <body>
-
   <!-- Cabeçalho -->
   <header id="header" class="header d-flex align-items-center sticky-top">
     <div class="container position-relative d-flex align-items-center justify-content-between">
-
       <a href="index.html" class="logo d-flex align-items-center justify-content-center me-auto me-xl-0">
         <img src="assets/img/logo.png" alt="">
       </a>
@@ -60,19 +52,29 @@
         <a href="https://www.instagram.com/iam.ryan10" class="instagram"><i class="bi bi-instagram"></i></a>
         <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
       </div>
-
     </div>
   </header>
-
-  <!-- Pesquisa -->
-  <section class="py-4 ">
-    <div class="container text-center">
-      <h2>Pesquisar Filmes</h2>
-      <input type="text" id="searchInput" class="form-control mt-3" placeholder="Digite o nome do filme...">
+<!-- Pesquisa -->
+<section class="py-4 text-center search-section">
+  <div class="container">
+    <h2>Pesquisar Filmes</h2>
+    <div class="input-group mt-3" style="gap:8px;">
+      <span class="input-group-text bg-white text-dark" style="border-radius:0;">
+        <i class="bi bi-search"></i>
+      </span>
+      <input
+        type="text"
+        id="searchInput"
+        class="form-control bg-white text-dark border-white"
+        style="border-radius:0;"
+        placeholder="Digite o nome do filme...">
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Player (só aparece quando clicar em um card) -->
+
+
+  <!-- Player (aparece ao clicar no card) -->
   <section class="container my-4 player-section" id="playerSection" style="display:none;">
     <div class="video-container" id="videoPlayer"></div>
     <h3 id="playerTitulo" class="mt-3"></h3>
@@ -80,180 +82,89 @@
   </section>
 
   <!-- Catálogo de filmes -->
- <section class="py-3 filmes-section">
   <div class="filmes-box">
     <div class="container p-5">
       <div class="row" id="filmesContainer"></div>
     </div>
   </div>
-</section>
-<style>/* filmes-box é o bloco central (mesma largura do container) com cantos arredondados */
-.filmes-box {
-  margin: 0 auto;           /* centraliza */
-  max-width: 1140px;        /* ajuste para o mesmo valor do seu .container (bootstrap) */
-  width: 100%;
-  background: #111;
-  border-top-left-radius: 30px;
-  border-top-right-radius: 30px;
-  box-sizing: border-box;
-  min-height: calc(100vh - 120px); /* ajusta conforme header+footer; mude 120px se necessário */
-  display: flex;
-  flex-direction: column;
-  padding-bottom: 50px;    /* espaçamento interno no final */
-}
-
-/* mantém o conteúdo em cima do fundo */
-.filmes-box .container {
-  position: relative;
-  z-index: 1;
-}
-</style>
 
 
   <!-- Script -->
   <script>
-  const filmes = [
-    {
-      titulo: "Dragon Ball Z: Broly o Lendário Super Saiyajin (1993)",
-      descricao: "Broly, o Saiyajin lendário, desperta para uma batalha devastadora.",
-      imagem: "https://img.youtube.com/vi/O6tXYPUfC8A/mqdefault.jpg",
-      video: '<iframe width="100%" height="450" src="https://www.youtube.com/embed/O6tXYPUfC8A" allowfullscreen></iframe>',
-      duracao: "1:10:00"
-    },
-    {
-      titulo: "Dragon Ball Z: O Homem Mais Forte do Mundo (1990)",
-      descricao: "Dr. Wheelo procura o corpo mais forte para dominar o mundo.",
-      imagem: "https://img.youtube.com/vi/XGSy3_Czz8k/mqdefault.jpg",
-      video: '<iframe width="100%" height="450" src="https://www.youtube.com/embed/XGSy3_Czz8k" allowfullscreen></iframe>',
-      duracao: "59:00"
-    },
-    {
-      titulo: "Dragon Ball Z: A Árvore do Poder (1990)",
-      descricao: "Turles planta a Árvore do Poder para consumir toda a energia da Terra.",
-      imagem: "https://img.youtube.com/vi/rN9gImAMMBc/mqdefault.jpg",
-      video: '<iframe width="100%" height="450" src="https://www.youtube.com/embed/rN9gImAMMBc?si=SRR-CT5ccwkRao5h" allowfullscreen></iframe>',
-      duracao: "1:05:00"
-    }
-  ];
+    const filmes = [
+      {
+        titulo: "Dragon Ball Z: Broly o Lendário Super Saiyajin (1993)",
+        descricao: "Broly, o Saiyajin lendário, desperta para uma batalha devastadora.",
+        imagem: "https://img.youtube.com/vi/O6tXYPUfC8A/mqdefault.jpg",
+        video: '<iframe width="100%" height="450" src="https://www.youtube.com/embed/O6tXYPUfC8A" allowfullscreen></iframe>',
+        duracao: "1:10:00"
+      },
+      {
+        titulo: "Dragon Ball Z: O Homem Mais Forte do Mundo (1990)",
+        descricao: "Dr. Wheelo procura o corpo mais forte para dominar o mundo.",
+        imagem: "https://img.youtube.com/vi/XGSy3_Czz8k/mqdefault.jpg",
+        video: '<iframe width="100%" height="450" src="https://www.youtube.com/embed/XGSy3_Czz8k" allowfullscreen></iframe>',
+        duracao: "59:00"
+      },
+      {
+        titulo: "Dragon Ball Z: A Árvore do Poder (1990)",
+        descricao: "Turles planta a Árvore do Poder para consumir toda a energia da Terra.",
+        imagem: "https://img.youtube.com/vi/rN9gImAMMBc/mqdefault.jpg",
+        video: '<iframe width="100%" height="450" src="https://www.youtube.com/embed/rN9gImAMMBc?si=SRR-CT5ccwkRao5h" allowfullscreen></iframe>',
+        duracao: "1:05:00"
+      }
+    ];
 
-  const searchInput = document.getElementById("searchInput");
-  const filmesContainer = document.getElementById("filmesContainer");
-  const playerSection = document.getElementById("playerSection");
-  const videoPlayer = document.getElementById("videoPlayer");
-  const playerTitulo = document.getElementById("playerTitulo");
-  const playerDescricao = document.getElementById("playerDescricao");
+    const searchInput = document.getElementById("searchInput");
+    const filmesContainer = document.getElementById("filmesContainer");
+    const playerSection = document.getElementById("playerSection");
+    const videoPlayer = document.getElementById("videoPlayer");
+    const playerTitulo = document.getElementById("playerTitulo");
+    const playerDescricao = document.getElementById("playerDescricao");
 
-  // Renderizar os cards
-  function renderFilmes(lista) {
-    filmesContainer.innerHTML = "";
-    lista.forEach((filme, index) => {
-      const col = document.createElement("div");
-      col.classList.add("col-md-4", "mb-3");
+    // Renderizar os cards
+    function renderFilmes(lista) {
+      filmesContainer.innerHTML = "";
+      lista.forEach((filme, index) => {
+        const col = document.createElement("div");
+        col.classList.add("col-md-4", "mb-3");
 
-      col.innerHTML = `
-        <div class="card h-100 text-white" data-index="${index}" style="cursor:pointer; background-color: transparent;">
-          <div class="img-container">
-            <img src="${filme.imagem}" class="card-img-top" alt="${filme.titulo}">
-            <div class="duration-badge">${filme.duracao}</div>
+        col.innerHTML = `
+          <div class="card h-100 text-white" data-index="${index}" style="cursor:pointer; background-color: transparent;">
+            <div class="img-container">
+              <img src="${filme.imagem}" class="card-img-top" alt="${filme.titulo}">
+              <div class="duration-badge">${filme.duracao}</div>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">${filme.titulo}</h5>
+              <p class="card-text">${filme.descricao}</p>
+            </div>
           </div>
-          <div class="card-body">
-            <h5 class="card-title">${filme.titulo}</h5>
-            <p class="card-text">${filme.descricao}</p>
-          </div>
-        </div>
-      `;
+        `;
 
-      // Clique → mostrar player
-      col.addEventListener("click", () => {
-        videoPlayer.innerHTML = filme.video;
-        playerTitulo.textContent = filme.titulo;
-        playerDescricao.textContent = filme.descricao;
-        playerSection.style.display = "block";
-        window.scrollTo({ top: 0, behavior: "smooth" });
+        col.addEventListener("click", () => {
+          videoPlayer.innerHTML = filme.video;
+          playerTitulo.textContent = filme.titulo;
+          playerDescricao.textContent = filme.descricao;
+          playerSection.style.display = "block";
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+
+        filmesContainer.appendChild(col);
       });
+    }
 
-      filmesContainer.appendChild(col);
+    // Filtro de pesquisa
+    searchInput.addEventListener("input", () => {
+      const termo = searchInput.value.toLowerCase();
+      const filtrados = filmes.filter(f =>
+        f.titulo.toLowerCase().includes(termo)
+      );
+      renderFilmes(filtrados.length > 0 ? filtrados : filmes);
     });
-  }
 
-  // Filtro de pesquisa
-  searchInput.addEventListener("input", () => {
-    const termo = searchInput.value.toLowerCase();
-    const filtrados = filmes.filter(f =>
-      f.titulo.toLowerCase().includes(termo)
-    );
-    renderFilmes(filtrados.length > 0 ? filtrados : filmes);
-  });
-
-  // Inicial: mostra todos
-  renderFilmes(filmes);
-</script>
-
-<style>
-  /* Força todas as thumbs a ficarem no mesmo tamanho */
-  .img-container {
-    position: relative;
-    width: 100%;
-    height: 200px; /* altura fixa */
-    overflow: hidden;
-    border-radius: 6px; /* borda levemente arredondada */
-  }
-
-  .img-container img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* corta proporcionalmente igual ao YouTube */
-    display: block;
-  }
-
-  /* Badge estilo YouTube */
-  .duration-badge {
-    position: absolute;
-    bottom: 6px;
-    right: 6px;
-    background: rgba(0, 0, 0, 0.9);
-    color: #fff;
-    font-size: 12px;
-    font-weight: 500;
-    padding: 2px 4px;
-    border-radius: 2px;
-    line-height: 1;
-  }
-
-  /* Título/descrição com estilo mais limpo */
-  .card-body {
-    padding: 10px 5px;
-  }
-
-  .card-title {
-    font-size: 14px;
-    font-weight: 600;
-    color: #fff;
-    margin: 0 0 5px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis; /* corta título longo */
-  }
-
-  .card-text {
-    font-size: 12px;
-    color: #bbb;
-    height: 32px;
-    overflow: hidden;
-  }
-
-  .card {
-    border: none;
-    background: transparent;
-    transition: transform 0.2s ease-in-out;
-  }
-
-  .card:hover {
-    transform: scale(1.03); /* animação sutil */
-  }
-</style>
-
-
-
+    // Inicial: mostra todos
+    renderFilmes(filmes);
+  </script>
 </body>
 </html>
