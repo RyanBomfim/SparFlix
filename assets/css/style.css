@@ -3174,9 +3174,7 @@ section,
       margin: 0 auto;
       max-width: 1140px;
       width: 100%;
-      background: #111;
-      border-top-left-radius: 30px;
-      border-top-right-radius: 30px;
+
       box-sizing: border-box;
       min-height: calc(100vh - 120px); /* ajusta conforme header+footer */
       display: flex;
@@ -3261,9 +3259,23 @@ section,
 #searchInput::placeholder {
   color: #aaa;
 }
-.search-section {
-  background: url('assets/img/kamehameha.jpg') no-repeat center center;
-  background-size: cover;  /* cobre toda a largura */
-  color: white;            /* deixa o texto visível */
+
+@font-face {
+  font-family: 'SaiyanSans';
+  src: url('../fonts/saiyan-sans/Saiyan-Sans.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
+.dbz-title {
+  font-family: 'SaiyanSans', 'Bangers', cursive, sans-serif;
+  font-size: 150px;
+  text-transform: uppercase;
+  color: #fff; /* cor padrão para o texto */
+  margin: 0;
+}
+
+.dbz-o {
+  color: #ff6600; /* laranja estilo Dragon Ball */
+}
+
 
