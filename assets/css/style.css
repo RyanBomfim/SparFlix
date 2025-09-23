@@ -3174,7 +3174,9 @@ section,
       margin: 0 auto;
       max-width: 1140px;
       width: 100%;
-
+      background: #111;
+      border-top-left-radius: 30px;
+      border-top-right-radius: 30px;
       box-sizing: border-box;
       min-height: calc(100vh - 120px); /* ajusta conforme header+footer */
       display: flex;
@@ -3245,7 +3247,7 @@ section,
     /* Deixa o input mais estilizado */
 .input-group-text {
   border: none;
-  border-radius: 0 !important;
+  border-radius: 10px !important;
 }
 
 #searchInput::placeholder {
