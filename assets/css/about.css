@@ -1,68 +1,20 @@
-/* Estilos exclusivos para a página About */
+/* ==============================
+   About / Besser Stylesheet
+   ============================== */
 
-.about-hero {
-  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-    url("https://wallpapercave.com/wp/wp5986124.jpg") center/cover no-repeat;
-  color: #fff;
-  padding: 100px 0;
+@font-face {
+  font-family: 'SaiyanSans';
+  src: url('../fonts/saiyan-sans/Saiyan-Sans.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
 
-.about-hero h1 {
+
+.dbz-sub-title {
   font-family: 'SaiyanSans', 'Bangers', cursive, sans-serif;
-  font-size: 3rem;
+  font-size: 40px;
   text-transform: uppercase;
-}
-
-.about-hero h1 span {
-  color: #ffcc00;
-}
-
-.about-hero p {
-  font-size: 1.2rem;
-  margin-top: 10px;
-}
-
-/* About content */
-.about-content h2 {
-  font-weight: 700;
-  color: #ffcc00;
-  margin-bottom: 20px;
-}
-
-.about-content p {
-  line-height: 1.7;
-  color: #f5f5f5;
-}
-
-/* Mission Section */
-.mission {
-  background: rgba(0, 0, 0, 0.5);
-  padding: 60px 20px;
-  border-top: 2px solid #ffcc00;
-  border-bottom: 2px solid #ffcc00;
-}
-
-.mission h2 {
-  font-family: "Bangers", cursive;
-  color: #ffcc00;
-  margin-bottom: 20px;
-}
-
-.mission-box {
-  background: #111;
-  padding: 25px;
-  border-radius: 10px;
   color: #fff;
-  transition: transform 0.3s ease;
-}
-
-.mission-box:hover {
-  transform: translateY(-8px);
-}
-
-.mission-box i {
-  font-size: 2rem;
-  color: #ffcc00;
-  margin-bottom: 15px;
-  display: block;
+  margin: 0;
+  letter-spacing: 5px;
 }
