@@ -1,17 +1,32 @@
-# Sparflix - Dragon Ball Z
+# 🌌 Sparflix - Dragon Ball Z
 
-Bem-vindo ao **Sparflix**, um projeto criado **de fãs para fãs de Dragon Ball Z**.
-O objetivo é reunir em um só lugar os **filmes, notícias e informações** sobre o universo de Dragon Ball Z, com uma interface moderna e personalizada.
+![Banner Sparflix](assets/img/banner-sparflix.png)
 
 ---
 
-## Sobre o Projeto
+## 📖 Sobre o Projeto
 O **Sparflix** nasceu de um projeto escolar chamado **Besser Animes**, que evoluiu para algo maior:
-um site totalmente dedicado ao Dragon Ball Z, com design inspirado no anime, trazendo energia, cores vibrantes e conteúdo organizado.
+um site totalmente dedicado ao **Dragon Ball Z**, reunindo **filmes, notícias e curiosidades** em um só lugar.
+Tudo isso com **design inspirado no anime**, cores vibrantes e animações dinâmicas. ⚡
 
 ---
 
-## 🛠️ Estrutura do Projeto
+## 🛠️ Tecnologias Utilizadas
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![Bootstrap](https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7E017?style=for-the-badge&logo=javascript&logoColor=black)
+
+- **HTML5** → Estrutura das páginas
+- **CSS3 / Bootstrap 5** → Estilização e responsividade
+- **JavaScript** → Funcionalidades e interatividade
+- **AOS (Animate on Scroll)** → Animações
+- **Bootstrap Icons** → Ícones modernos
+
+---
+
+## 📂 Estrutura do Projeto
+
 ```plaintext
 📂 sparflix/
 ├── 📂 assets/
@@ -27,47 +42,30 @@ um site totalmente dedicado ao Dragon Ball Z, com design inspirado no anime, tra
 └── README.md # Documentação do projeto
 ```
 
-
----
-
-## 🚀 Tecnologias Utilizadas
-- **HTML5** → Estrutura das páginas
-- **CSS3 / Bootstrap 5** → Estilização e responsividade
-- **JavaScript** → Funcionalidades e interatividade
-- **AOS (Animate on Scroll)** → Animações suaves
-- **Bootstrap Icons** → Ícones para navegação e seções
-
----
-
-## 🎨 Layout e Design
-- **Tema baseado em Dragon Ball Z** ⚡
-- **Header fixo** com navegação dinâmica
-- **Seções animadas** para dar mais vida ao site
-- **Timeline e cards** para organização de conteúdo
-
 ---
 
 ## 📌 Páginas
-- **Home (`index.html`)** → Página inicial com introdução
-- **Sobre (`about.html`)** → História do projeto + Linha do tempo DBZ
-- **Filmes (`dbz-movies.html`)** → Lista completa dos filmes DBZ
-- **Notícias (`dbz-news.html`)** → Últimas novidades do universo Dragon Ball
+- 🏠 **Home (`index.html`)** → Introdução ao site
+- 📖 **Sobre (`about.html`)** → História do projeto + Linha do tempo DBZ
+- 🎬 **Filmes (`dbz-movies.html`)** → Lista completa dos filmes DBZ
+- 📰 **Notícias (`dbz-news.html`)** → Últimas novidades do universo Dragon Ball
 
 ---
 
 ## 🔮 Futuras Melhorias
-- [ ] Adicionar player para assistir trailers dos filmes
-- [ ] Criar sistema de busca para filmes e notícias
-- [ ] Adicionar mais páginas (personagens, sagas etc.)
+- [ ] Adicionar player para trailers 🎥
+- [ ] Criar sistema de busca para filmes e notícias 🔍
+- [ ] Página dedicada a personagens 🥋
 - [ ] Dark Mode 🌑
 
 ---
 
 ## 👨‍💻 Autor
-Projeto desenvolvido por **Ryan Bomfim**
-📧 Contato: [ryanocbomfim@gmail.com](mailto:ryanocbomfim@gmail.com)
+**Ryan Bomfim**
+
+📧 Email: [ryanocbomfim@gmail.com](mailto:ryanocbomfim@gmail.com)
 📷 Instagram: [@iam.ryan10](https://www.instagram.com/iam.ryan10)
 
 ---
 
-⚡ *Sparflix é um projeto não-oficial, feito apenas para fins educacionais e de entretenimento.*
+⚡ *Sparflix é um projeto não-oficial, criado para fins educacionais e de entretenimento.*
