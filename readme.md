@@ -28,18 +28,27 @@ Tudo isso com **design inspirado no anime**, cores vibrantes e animações dinâ
 ## 📂 Estrutura do Projeto
 
 ```plaintext
-📂 sparflix/
-├── 📂 assets/
-│ ├── 📂 css/ # Arquivos de estilo (style.css, about.css etc.)
-│ ├── 📂 img/ # Imagens, ícones e logos
-│ ├── 📂 vendor/ # Dependências externas (Bootstrap, AOS, etc.)
-│ └── 📂 js/ # Scripts principais (main.js)
+📂sparflix/
 │
-├── index.html # Página inicial
-├── about.html # Página "Sobre"
-├── dbz-movies.html # Página de filmes DBZ
-├── dbz-news.html # Página de notícias
-└── README.md # Documentação do projeto
+├── 📂assets/                  # Arquivos estáticos (CSS, JS, imagens, ícones, vendors)
+│   ├── 📂css/                 # Estilos principais (style.css, about.css, etc.)
+│   ├── 📂js/                  # Scripts principais (main.js, etc.)
+│   ├── 📂img/                 # Imagens e ícones (logo, banners, etc.)
+│   └── 📂vendor/              # Dependências externas (Bootstrap, AOS, etc.)
+│
+├── 📂components/              # Componentes e conteúdos reutilizáveis
+│   ├── 📂backups/             # Versões antigas e arquivos de segurança
+│   ├── 📂includes/            # Partes reaproveitáveis (header, footer, menus)
+│   └── 📂content/             # Conteúdos centrais (sobre, timeline, banners)
+│
+├── index.html               # Página inicial
+├── about.html               # Página "Sobre"
+├── dbz-movies.html          # Página de filmes
+├── dbz-news.html             # Página de notícias
+│
+├── README.md                # Documentação do projeto
+└── LICENSE.md                  # Licença
+
 ```
 
 ---
