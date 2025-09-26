@@ -3046,11 +3046,6 @@ section,
 
 }
 
-/* From Uiverse.io by satyamchaudharydev */
-/* From uiverse.io by @satyamchaudharydev */
-/* this button is inspired by -- whatsapp input */
-/* == type to see fully interactive and click the close buttom to remove the text  == */
-
 .form {
   --input-bg: #FFf;
  /*  background of input */
@@ -3093,15 +3088,7 @@ section,
   position: absolute;
   height: 15px;
 }
-/* search icon */
-.icon {
-  position: absolute;
-  left: var(--padding);
-  transition: 0.3s cubic-bezier(.4,0,.2,1);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+
 /* arrow-icon*/
 .swap-off {
   transform: rotate(-80deg);
