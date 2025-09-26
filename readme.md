@@ -1,6 +1,6 @@
 # Sparflix - Dragon Ball Z
 
-![Banner Sparflix](assets/img/banner-sparflix.png)
+![Banner Sparflix](assets/img/about/banner-sparflix.png)
 
 ---
 
