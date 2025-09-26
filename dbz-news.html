@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sparflix - Notícias</title>
+
+  <!-- Favicons / Fonts / Vendor CSS - manter conforme seu projeto -->
+  <link href="assets/img/logo.png" rel="icon" />
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@400;600&display=swap"
+    rel="stylesheet" />
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
+  <link href="assets/css/style.css" rel="stylesheet" />
+
+  <style>
+    /* Pequenos ajustes específicos para a página de notícias */
+    .news-card .card-img-top { height: 200px; object-fit: cover; }
+    .tag-badge { cursor: pointer; margin-right: 6px; }
+    .active-tag { background:#0d6efd; color:#fff; }
+    .search-area { gap: 12px; }
+    .news-meta { font-size: 0.9rem; color: #6c757d; }
+    .no-results { text-align:center; padding:40px 0; color:#6c757d; }
+  </style>
+</head>
+
+<body class="service-details-page">
+
+  <!-- ===== Header (mesma estrutura do seu about.html) ===== -->
+  <header id="header" class="header d-flex align-items-center sticky-top">
+    <div class="container position-relative d-flex align-items-center justify-content-between">
+      <a href="index.html" class="logo d-flex align-items-center justify-content-center me-auto me-xl-0">
+        <img src="assets/img/logo.png" alt="Sparflix" style="height:46px;">
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">Sobre</a></li>
+          <li><a href="dbz-movies.html">Filmes</a></li>
+          <li><a href="noticias.html" class="active">Notícias</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+      <div class="header-social-links">
+        <a href="mailto:ryanocbomfim@gmail.com" class="gmail"><i class="bi bi-google"></i></a>
+        <a href="https://www.instagram.com/iam.ryan10" class="instagram" target="_blank"><i class="bi bi-instagram"></i></a>
+      </div>
+    </div>
+  </header>
+
+  <main class="main" style="margin-top: 90px;">
+
+    <!-- Page Title -->
+    <div class="page-title light-background">
+      <div class="container d-lg-flex justify-content-between align-items-center">
+        <div class="mb-2 mb-lg-0 dbz-sub-title">N<span class="dbz-o">O</span>tícias</div>
+        <nav class="breadcrumbs">
+          <ol>
+            <li><a href="index.html">Home</a></li>
+            <li class="current">Notícias</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Conteúdo principal -->
+    <section id="noticias" class="section">
+      <div class="container" data-aos="fade-up">
+
+        <!-- Pesquisa + Filtros -->
+        <div class="row mb-4 search-area align-items-center">
+          <div class="col-md-6">
+            <input id="searchInput" class="form-control" type="search" placeholder="Buscar notícias, personagens, termos..." aria-label="Pesquisar notícias">
+          </div>
+          <div class="col-md-3">
+            <select id="categorySelect" class="form-select" aria-label="Filtrar por categoria">
+              <option value="">Todas as categorias</option>
+              <option value="Filmes">Filmes</option>
+              <option value="Mangá">Mangá</option>
+              <option value="Eventos">Eventos</option>
+              <option value="Análises">Análises</option>
+              <option value="Entrevistas">Entrevistas</option>
+            </select>
+          </div>
+          <div class="col-md-3 text-end">
+            <button id="clearFilters" class="btn btn-outline-secondary">Limpar filtros</button>
+          </div>
+        </div>
+
+        <!-- Grid de notícias -->
+        <div id="newsGrid" class="row gy-4"></div>
+
+        <!-- Paginação -->
+        <nav aria-label="Paginação notícias" class="mt-4">
+          <ul id="pagination" class="pagination justify-content-center"></ul>
+        </nav>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Modal de visualização da notícia (abre ao clicar em "Leia mais") -->
+  <div class="modal fade" id="newsModal" tabindex="-1" aria-labelledby="newsModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="newsModalLabel"></h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
+        </div>
+        <div class="modal-body">
+          <img id="modalImage" class="img-fluid mb-3" alt="">
+          <div id="modalMeta" class="news-meta mb-3"></div>
+          <div id="modalContent"></div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== Footer (mantive seu footer adaptado) ===== -->
+  <footer id="footer" class="footer light-background mt-5">
+    <div class="container">
+      <div class="row gy-3">
+        <div class="col-lg-3 col-md-6 d-flex">
+          <i class="bi bi-geo-alt icon"></i>
+          <div class="address">
+            <h4>Endereço</h4>
+            <p>ETEC de Itaquera</p>
+            <p>São Paulo - SP</p>
+            <p>Brasil</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 d-flex">
+          <i class="bi bi-telephone icon"></i>
+          <div>
+            <h4>Contato</h4>
+            <p>
+              <strong>Telefone:</strong> (11) 99999-9999<br>
+              <strong>Email:</strong> spartask.projeto@gmail.com<br>
+            </p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6 d-flex">
+          <i class="bi bi-clock icon"></i>
+          <div>
+            <h4>Horário</h4>
+            <p><strong>Seg-Sex:</strong> 08h - 18h<br>
+              <strong>Sábado:</strong> 08h - 12h<br>
+              <strong>Domingo:</strong> Fechado</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <h4>Siga-nos</h4>
+          <div class="social-links d-flex">
+            <a href="https://github.com/RyanBomfim/SparFlix" target="_blank" class="github"><i class="bi bi-github"></i></a>
+            <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container text-center mt-4">
+      <p>© 2025 <strong>SparTask / Sparflix</strong> | Projeto de Conclusão de Curso - ETEC</p>
+    </div>
+  </footer>
+
+  <!-- Vendor JS -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+
+  <!-- Script da página: dados + renderização (editar a lista 'articles' para adicionar notícias) -->
+  <script>
+    // ----- Dados de exemplo: edite / expanda este array com as suas notícias -----
+    const articles = [
+      {
+        id: 1,
+        title: "Novo Episódio Especial Anunciado",
+        date: "2025-09-12",
+        author: "Equipe Sparflix",
+        category: "Filmes",
+        image: "assets/img/noticias/goku-ultra-instinct.jpg",
+        excerpt: "A Toei Animation confirmou um episódio comemorativo com foco em Goku e Vegeta explorando novos níveis de poder.",
+        content: "<p>A Toei anunciou um episódio especial que promete celebrar os fãs clássicos e trazer sequências inéditas...</p><p>Mais detalhes serão divulgados em breve.</p>",
+        tags: ["Goku", "Episódio", "Toei"]
+      },
+      {
+        id: 2,
+        title: "Mangá Dragon Ball Super: Nova Saga",
+        date: "2025-08-05",
+        author: "Danilo Nieba",
+        category: "Mangá",
+        image: "assets/img/noticias/vegeta.jpg",
+        excerpt: "A nova saga do mangá traz Vegeta como protagonista em batalhas épicas contra vilões inéditos.",
+        content: "<p>O mangaká surpreende ao colocar Vegeta em foco, explorando temas de redenção e poder.</p>",
+        tags: ["Vegeta", "Mangá"]
+      },
+      {
+        id: 3,
+        title: "Evento Mundial de Dragon Ball anunciado",
+        date: "2025-07-20",
+        author: "Equipe Sparflix",
+        category: "Eventos",
+        image: "assets/img/noticias/dbz-event.jpg",
+        excerpt: "Um evento global está sendo organizado para celebrar os 40 anos da franquia Dragon Ball com surpresas para os fãs.",
+        content: "<p>Fãs poderão participar de painéis, exposições e competições oficiais realizadas em várias capitais.</p>",
+        tags: ["Evento", "FanMeeting"]
+      },
+      {
+        id: 4,
+        title: "Entrevista com dublador histórico",
+        date: "2025-06-30",
+        author: "Equipe Sparflix",
+        category: "Entrevistas",
+        image: "assets/img/noticias/dublador.jpg",
+        excerpt: "Conversamos com um dos dubladores que marcou gerações — histórias dos bastidores e curiosidades.",
+        content: "<p>O bate-papo trouxe memórias, desafios de estúdio e anedotas que poucos conheciam.</p>",
+        tags: ["Entrevista", "Bastidores"]
+      },
+      {
+        id: 5,
+        title: "Análise: as transformações de Goku ao longo da série",
+        date: "2025-05-18",
+        author: "Ryan Bomfim",
+        category: "Análises",
+        image: "assets/img/noticias/goku-transformations.jpg",
+        excerpt: "Um mergulho técnico nas transformações de Goku — significado, design e impacto narrativo.",
+        content: "<p>Ao analisar cada transformação, entendemos sua importância para o enredo e para o desenvolvimento do personagem.</p>",
+        tags: ["Goku", "Análise"]
+      },
+      {
+        id: 6,
+        title: "Top 10 batalhas inesquecíveis",
+        date: "2025-04-02",
+        author: "Equipe Sparflix",
+        category: "Análises",
+        image: "assets/img/noticias/top10-batalhas.jpg",
+        excerpt: "Relembre as dez lutas que marcaram a franquia — momentos, trilha e repercussão entre fãs.",
+        content: "<p>Listamos as batalhas que mudaram o rumo da narrativa e emocionaram gerações.</p>",
+        tags: ["Top", "Batalhas"]
+      }
+    ];
+
+    // ---- estado e configurações ----
+    const perPage = 4;
+    let tagFilter = "";
+    let newsModal = null;
+
+    // Inicialização
+    document.addEventListener("DOMContentLoaded", () => {
+      newsModal = new bootstrap.Modal(document.getElementById('newsModal'));
+      document.getElementById('searchInput').addEventListener('input', () => renderArticles(1));
+      document.getElementById('categorySelect').addEventListener('change', () => renderArticles(1));
+      document.getElementById('clearFilters').addEventListener('click', () => {
+        document.getElementById('searchInput').value = '';
+        document.getElementById('categorySelect').value = '';
+        tagFilter = '';
+        renderArticles(1);
+      });
+      renderArticles(1);
+    });
+
+    // Renderiza as notícias conforme filtros/paginação
+    function renderArticles(page = 1) {
+      const q = document.getElementById('searchInput').value.trim().toLowerCase();
+      const category = document.getElementById('categorySelect').value;
+      const filtered = articles.filter(a => {
+        const matchesSearch = q === "" || (a.title + " " + a.excerpt + " " + a.content + " " + a.tags.join(" ")).toLowerCase().includes(q);
+        const matchesCategory = !category || a.category === category;
+        const matchesTag = !tagFilter || a.tags.includes(tagFilter);
+        return matchesSearch && matchesCategory && matchesTag;
+      });
+
+      const total = filtered.length;
+      const totalPages = Math.max(1, Math.ceil(total / perPage));
+      if (page > totalPages) page = totalPages;
+
+      const start = (page - 1) * perPage;
+      const pageItems = filtered.slice(start, start + perPage);
+
+      const grid = document.getElementById('newsGrid');
+      grid.innerHTML = "";
+
+      if (pageItems.length === 0) {
+        grid.innerHTML = `<div class="col-12"><div class="no-results">Nenhuma notícia encontrada. Tente outro filtro ou palavra-chave.</div></div>`;
+      } else {
+        pageItems.forEach(a => {
+          const col = document.createElement('div');
+          col.className = 'col-lg-4 col-md-6';
+          col.innerHTML = `
+            <article class="card news-card h-100">
+              <img src="${a.image}" class="card-img-top" alt="${escapeHtml(a.title)}" onerror="this.src='assets/img/noticias/placeholder.jpg'">
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title">${escapeHtml(a.title)}</h5>
+                <div class="news-meta mb-2">${formatDate(a.date)} • ${escapeHtml(a.author)} • <strong>${escapeHtml(a.category)}</strong></div>
+                <p class="card-text flex-grow-1">${escapeHtml(a.excerpt)}</p>
+                <div class="mb-2">
+                  ${a.tags.map(t=>`<span class="badge bg-light text-dark tag-badge ${t===tagFilter?'active-tag':''}" onclick="filterByTag('${escapeHtmlAttr(t)}')">${escapeHtml(t)}</span>`).join(' ')}
+                </div>
+                <div class="mt-2 text-end">
+                  <button class="btn btn-sm btn-primary" onclick="openArticle(${a.id})">Leia mais</button>
+                </div>
+              </div>
+            </article>
+          `;
+          grid.appendChild(col);
+        });
+      }
+
+      renderPagination(totalPages, page);
+    }
+
+    // Abre modal com o conteúdo completo da notícia
+    function openArticle(id) {
+      const a = articles.find(x => x.id === id);
+      if (!a) return;
+      document.getElementById('newsModalLabel').textContent = a.title;
+      const img = document.getElementById('modalImage');
+      img.src = a.image;
+      img.alt = a.title;
+      img.onerror = ()=> img.src = 'assets/img/noticias/placeholder.jpg';
+      document.getElementById('modalMeta').textContent = `${formatDate(a.date)} • ${a.author} • ${a.category}`;
+      document.getElementById('modalContent').innerHTML = a.content;
+      newsModal.show();
+    }
+
+    // Filtra por tag (clicável)
+    function filterByTag(tag) {
+      tagFilter = (tagFilter === tag) ? "" : tag;
+      renderArticles(1);
+    }
+
+    // Paginação
+    function renderPagination(totalPages, current) {
+      const ul = document.getElementById('pagination');
+      ul.innerHTML = "";
+
+      const makePageItem = (p, label = null, disabled = false, active = false) => {
+        const li = document.createElement('li');
+        li.className = 'page-item' + (disabled ? ' disabled' : '') + (active ? ' active' : '');
+        const a = document.createElement('a');
+        a.className = 'page-link';
+        a.href = '#';
+        a.dataset.page = p;
+        a.innerHTML = label || p;
+        a.addEventListener('click', e => { e.preventDefault(); if (!disabled) renderArticles(p); });
+        li.appendChild(a);
+        return li;
+      };
+
+      // prev
+      ul.appendChild(makePageItem(Math.max(1, current - 1), '&laquo;', current === 1, false));
+      // pages
+      for (let p = 1; p <= totalPages; p++) {
+        ul.appendChild(makePageItem(p, p, false, p === current));
+      }
+      // next
+      ul.appendChild(makePageItem(Math.min(totalPages, current + 1), '&raquo;', current === totalPages, false));
+    }
+
+    // Helpers
+    function formatDate(iso) {
+      const d = new Date(iso);
+      return d.toLocaleDateString('pt-BR', { day: '2-digit', month: 'short', year: 'numeric' });
+    }
+
+    function escapeHtml(str) {
+      if (!str) return '';
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;');
+    }
+    function escapeHtmlAttr(str) {
+      return escapeHtml(str).replace(/"/g, '&quot;');
+    }
+  </script>
+</body>
+</html>
