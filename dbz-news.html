@@ -33,6 +33,28 @@
 
 
 <body class="starter-page-page">
+<!-- Modal de Notícias -->
+<div class="modal fade" id="newsModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content bg-dark text-light rounded-4 shadow-lg border-0">
+      <div class="modal-header border-0">
+        <h3 class="modal-title fw-bold" id="newsModalLabel"></h3>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fechar"></button>
+      </div>
+      <div class="modal-body">
+        <img id="modalImage" class="img-fluid rounded mb-3 shadow" alt="">
+        <p id="modalMeta" class="text-warning small mb-3"></p>
+        <div id="modalContent" style="line-height:1.7;"></div>
+      </div>
+      <div class="modal-footer border-0">
+        <button type="button" class="btn btn-outline-light rounded-pill px-4" data-bs-dismiss="modal">
+          Fechar
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
   <!-- Header -->
   <header id="header" class="header d-flex align-items-center sticky-top">
     <div class="container position-relative d-flex align-items-center justify-content-between">
@@ -86,65 +108,15 @@
   <div id="news-container" class="container" data-aos="fade-up">
     <!-- Cards vão ser gerados dinamicamente -->
   </div>
+
+  <!-- Noticias extras em cards verticais -->
+<div class="container mt-5" data-aos="fade-up">
+  <div class="row" id="extra-news-container">
+    <!-- Cards extras serão gerados dinamicamente -->
+  </div>
+</div>
+
 </section><!-- /Starter Section Section -->
-
-<script>
-  // Lista de notícias - só atualizar aqui
-  const noticias = [
-    {
-      titulo: "Dragon Ball Daima ganha trailer inédito",
-      texto: "O novo trailer de Dragon Ball Daima revelou cenas inéditas, mostrando Goku, Vegeta e outros personagens em versões infantis. A série promete trazer nostalgia e novidades para os fãs, com estreia marcada para outubro de 2024.",
-      imagem: "assets/img/banner-sparflix.png",
-      atualizado: "há 10 minutos",
-      link: "https://www.dragonballofficial.com/news/01_123.html"
-    },
-    {
-      titulo: "Akira Toriyama é homenageado no Japão",
-      texto: "Um grande evento em Tóquio homenageou Akira Toriyama, criador de Dragon Ball. A exposição trouxe artes originais, entrevistas inéditas e depoimentos de grandes nomes da indústria de mangás e animes.",
-      imagem: "assets/img/banner-sparflix.png",
-      atualizado: "há 2 horas",
-      link: "https://www.crunchyroll.com/pt-br/news"
-    },
-    {
-      titulo: "Novo jogo de Dragon Ball anunciado",
-      texto: "A Bandai Namco confirmou o desenvolvimento de um novo jogo de Dragon Ball para consoles de nova geração. O jogo terá gráficos avançados, batalhas épicas e uma história inédita criada em parceria com a Toei Animation.",
-      imagem: "assets/img/banner-sparflix.png",
-      atualizado: "há 1 dia",
-      link: "https://www.bandainamcoent.com/news"
-    }
-  ];
-
-  // Container onde os cards serão inseridos
-  const container = document.getElementById("news-container");
-
-  // Renderiza os cards
-  noticias.forEach(noticia => {
-    const card = document.createElement("div");
-    card.className = "card mb-4 bg-dark shadow-lg border-0";
-    card.style.cursor = "pointer";
-    card.onclick = () => window.open(noticia.link, "_blank"); // abre a notícia em nova aba
-
-    card.innerHTML = `
-      <div class="row g-0 p-3">
-        <div class="col-md-4">
-          <img src="${noticia.imagem}" class="img-fluid rounded-start" alt="${noticia.titulo}">
-        </div>
-        <div class="col-md-8 p-3">
-          <div class="card-body">
-            <h3 class="card-title mb-3" style="font-size: 1.6rem;">${noticia.titulo}</h3>
-            <p class="card-text" style="font-size: 1.1rem; line-height: 1.6;">
-              ${noticia.texto}
-            </p>
-            <p class="card-text">
-              <small class="text-body-secondary">Última atualização ${noticia.atualizado}</small>
-            </p>
-          </div>
-        </div>
-      </div>
-    `;
-    container.appendChild(card);
-  });
-</script>
 
   <footer id="footer" class="footer light-background">
 
@@ -197,11 +169,13 @@
     </div>
 
     <div class="container copyright text-center mt-4">
-      <p>© <span>Copyright</span> <strong class="px-1 sitename">Ryan</strong> <span>All Rights Reserved</span></p>
+      <p>© <span>Copyright</span> <strong class="px-1 sitename">Ryan Bomfim</strong> <span>All Rights Reserved</span></p>
 
     </div>
 
   </footer>
+
+
 
   <!-- Scroll Top -->
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
@@ -222,6 +196,128 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
+<script>
+  // Lista de notícias principais (horizontais)
+  const noticias = [
+    {
+      titulo: "Dragon Ball Daima ganha trailer inédito",
+      texto: "O novo trailer de Dragon Ball Daima revelou cenas inéditas, mostrando Goku, Vegeta e outros personagens em versões infantis. A série promete trazer nostalgia e novidades para os fãs, com estreia marcada para outubro de 2024.",
+      imagem: "https://tse1.mm.bing.net/th/id/OIP.OGcMkd5BZN-yjbmqWjH70gHaEK?rs=1&pid=ImgDetMain&o=7&rm=3",
+      atualizado: "há 10 minutos"
+    },
+    {
+      titulo: "Akira Toriyama é homenageado no Japão",
+      texto: "Um grande evento em Tóquio homenageou Akira Toriyama, criador de Dragon Ball. A exposição trouxe artes originais, entrevistas inéditas e depoimentos de grandes nomes da indústria de mangás e animes.",
+      imagem: "https://tse4.mm.bing.net/th/id/OIP.FrJfeI43cqYt2s74odjZswAAAA?rs=1&pid=ImgDetMain&o=7&rm=3",
+      atualizado: "há 2 horas"
+    },
+    {
+      titulo: "Novo jogo de Dragon Ball anunciado",
+      texto: "A Bandai Namco confirmou o desenvolvimento de um novo jogo de Dragon Ball para consoles de nova geração. O jogo terá gráficos avançados, batalhas épicas e uma história inédita criada em parceria com a Toei Animation.",
+      imagem: "https://tse4.mm.bing.net/th/id/OIP.Iq0hrF5VxlkXZdOAKynFUQHaEK?rs=1&pid=ImgDetMain&o=7&rm=3",
+      atualizado: "há 1 dia"
+    }
+  ];
+
+  // Noticias extras (verticais)
+  const noticiasExtras = [
+    {
+      titulo: "Dragon Ball Super retorna em 2025",
+      texto: "A Toei Animation confirmou oficialmente o retorno de Dragon Ball Super em 2025 com uma nova saga. A produção promete foco em batalhas épicas e desenvolvimento inédito dos personagens.",
+      imagem: "https://tse2.mm.bing.net/th/id/OIP.Ps7BDsG9s1GwcwV2ZTkz8QHaEK?rs=1&pid=ImgDetMain",
+      atualizado: "há 3 dias"
+    },
+    {
+      titulo: "Novo mangá spin-off de Dragon Ball",
+      texto: "Um novo spin-off de Dragon Ball focado nos vilões mais icônicos está em produção. A história explorará as origens e motivações de Freeza, Cell e Majin Buu.",
+      imagem: "https://tse2.mm.bing.net/th/id/OIP.q1NDbE8F0plzDLhRG5FlHgHaEK?rs=1&pid=ImgDetMain",
+      atualizado: "há 5 dias"
+    },
+    {
+      titulo: "Coleção especial de figures lançada",
+      texto: "Uma nova coleção premium de action figures de Dragon Ball foi anunciada. Cada figura vem com iluminação especial e detalhes realistas que recriam cenas clássicas do anime.",
+      imagem: "https://tse1.mm.bing.net/th/id/OIP.-lZuJhxW1P6Gklf1XD7j1AHaEK?rs=1&pid=ImgDetMain",
+      atualizado: "há 1 semana"
+    }
+  ];
+
+  // Container onde os cards serão inseridos
+  const container = document.getElementById("news-container");
+  const extraContainer = document.getElementById("extra-news-container");
+
+  // Referências da modal
+  const modal = new bootstrap.Modal(document.getElementById('newsModal'));
+  const modalTitle = document.getElementById('newsModalLabel');
+  const modalImage = document.getElementById('modalImage');
+  const modalMeta = document.getElementById('modalMeta');
+  const modalContent = document.getElementById('modalContent');
+
+  // Renderiza cards horizontais
+  noticias.forEach(noticia => {
+    const card = document.createElement("div");
+    card.className = "card mb-4 bg-dark shadow-lg border-0";
+    card.style.cursor = "pointer";
+
+    card.onclick = () => {
+      modalTitle.textContent = noticia.titulo;
+      modalImage.src = noticia.imagem;
+      modalMeta.textContent = `Última atualização ${noticia.atualizado}`;
+      modalContent.innerHTML = `<p>${noticia.texto}</p>`;
+      modal.show();
+    };
+
+    card.innerHTML = `
+      <div class="row g-0 p-3">
+        <div class="col-md-4">
+          <img src="${noticia.imagem}" class="img-fluid rounded-start" alt="${noticia.titulo}">
+        </div>
+        <div class="col-md-8 p-3">
+          <div class="card-body">
+            <h3 class="card-title mb-3">${noticia.titulo}</h3>
+            <p class="card-text">${noticia.texto.substring(0, 150)}...</p>
+            <p class="card-text"><small class="text-body-secondary">Última atualização ${noticia.atualizado}</small></p>
+          </div>
+        </div>
+      </div>
+    `;
+    container.appendChild(card);
+  });
+
+  // Renderiza cards verticais extras
+  noticiasExtras.forEach(noticia => {
+    const col = document.createElement("div");
+    col.className = "col-lg-4 col-md-6 mb-4";
+
+    const card = document.createElement("div");
+    card.className = "card h-100 bg-dark text-light shadow-lg border-0";
+    card.style.cursor = "pointer";
+
+    card.onclick = () => {
+      modalTitle.textContent = noticia.titulo;
+      modalImage.src = noticia.imagem;
+      modalMeta.textContent = `Última atualização ${noticia.atualizado}`;
+      modalContent.innerHTML = `<p>${noticia.texto}</p>`;
+      modal.show();
+    };
+
+    card.innerHTML = `
+      <img src="${noticia.imagem}" class="card-img-top rounded-top" alt="${noticia.titulo}">
+      <div class="card-body">
+        <h4 class="card-title">${noticia.titulo}</h4>
+        <p class="card-text">${noticia.texto.substring(0, 120)}...</p>
+      </div>
+      <div class="card-footer border-0">
+        <small class="text-body-secondary">Última atualização ${noticia.atualizado}</small>
+      </div>
+    `;
+
+    col.appendChild(card);
+    extraContainer.appendChild(col);
+  });
+</script>
+
+
+
 </body>
 
 </html>
