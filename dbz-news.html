@@ -74,70 +74,77 @@
         </nav>
       </div>
     </div>
+<!-- Starter Section Section -->
+<section id="starter-section" class="starter-section section">
+  <!-- Section Title -->
+  <div class="container section-title" data-aos="fade-up">
+    <span class="description-title">Notícias Recentes</span>
+    <h2 style="font-size: 2.5rem;">Notícias Recentes</h2>
+    <p style="font-size: 1.2rem;">As mais recentes notícias do mundo de Dragon Ball.</p>
+  </div><!-- End Section Title -->
 
-    <!-- Starter Section Section -->
-    <section id="starter-section" class="starter-section section">
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <span class="description-title">Notícias Recentes</span>
-        <h2>Notícias Recentes</h2>
-        <p>As mais recentes notícias do mundo de Dragon Ball.</p>
-      </div><!-- End Section Title -->
+  <div id="news-container" class="container" data-aos="fade-up">
+    <!-- Cards vão ser gerados dinamicamente -->
+  </div>
+</section><!-- /Starter Section Section -->
 
-      <div class="container" data-aos="fade-up">
-        <div class="card mb-3 bg-dark">
-          <div class="row g-0 p-3">
-            <div class="col-md-4">
-              <img src="assets/img/banner-sparflix.png" class="img-fluid rounded-start" alt="...">
-            </div>
-            <div class="col-md-8 p-3">
-              <div class="card-body">
-                <h1 class="card-title">Card title</h1>
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
-                  content. This content is a little bit longer.</p>
-                <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
-              </div>
-            </div>
+<script>
+  // Lista de notícias - só atualizar aqui
+  const noticias = [
+    {
+      titulo: "Dragon Ball Daima ganha trailer inédito",
+      texto: "O novo trailer de Dragon Ball Daima revelou cenas inéditas, mostrando Goku, Vegeta e outros personagens em versões infantis. A série promete trazer nostalgia e novidades para os fãs, com estreia marcada para outubro de 2024.",
+      imagem: "assets/img/banner-sparflix.png",
+      atualizado: "há 10 minutos",
+      link: "https://www.dragonballofficial.com/news/01_123.html"
+    },
+    {
+      titulo: "Akira Toriyama é homenageado no Japão",
+      texto: "Um grande evento em Tóquio homenageou Akira Toriyama, criador de Dragon Ball. A exposição trouxe artes originais, entrevistas inéditas e depoimentos de grandes nomes da indústria de mangás e animes.",
+      imagem: "assets/img/banner-sparflix.png",
+      atualizado: "há 2 horas",
+      link: "https://www.crunchyroll.com/pt-br/news"
+    },
+    {
+      titulo: "Novo jogo de Dragon Ball anunciado",
+      texto: "A Bandai Namco confirmou o desenvolvimento de um novo jogo de Dragon Ball para consoles de nova geração. O jogo terá gráficos avançados, batalhas épicas e uma história inédita criada em parceria com a Toei Animation.",
+      imagem: "assets/img/banner-sparflix.png",
+      atualizado: "há 1 dia",
+      link: "https://www.bandainamcoent.com/news"
+    }
+  ];
+
+  // Container onde os cards serão inseridos
+  const container = document.getElementById("news-container");
+
+  // Renderiza os cards
+  noticias.forEach(noticia => {
+    const card = document.createElement("div");
+    card.className = "card mb-4 bg-dark shadow-lg border-0";
+    card.style.cursor = "pointer";
+    card.onclick = () => window.open(noticia.link, "_blank"); // abre a notícia em nova aba
+
+    card.innerHTML = `
+      <div class="row g-0 p-3">
+        <div class="col-md-4">
+          <img src="${noticia.imagem}" class="img-fluid rounded-start" alt="${noticia.titulo}">
+        </div>
+        <div class="col-md-8 p-3">
+          <div class="card-body">
+            <h3 class="card-title mb-3" style="font-size: 1.6rem;">${noticia.titulo}</h3>
+            <p class="card-text" style="font-size: 1.1rem; line-height: 1.6;">
+              ${noticia.texto}
+            </p>
+            <p class="card-text">
+              <small class="text-body-secondary">Última atualização ${noticia.atualizado}</small>
+            </p>
           </div>
         </div>
-
-        <div class="card mb-3 bg-dark">
-          <div class="row g-0 p-3">
-            <div class="col-md-4">
-              <img src="assets/img/banner-sparflix.png" class="img-fluid rounded-start" alt="...">
-            </div>
-            <div class="col-md-8 p-3">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
-                  content. This content is a little bit longer.</p>
-                <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-
-        <div class="card mb-3 bg-dark">
-          <div class="row g-0 p-3">
-            <div class="col-md-4">
-              <img src="assets/img/banner-sparflix.png" class="img-fluid rounded-start" alt="...">
-            </div>
-            <div class="col-md-8 p-3">
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
-                  content. This content is a little bit longer.</p>
-                <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
-              </div>
-            </div>
-          </div>
-        </div>
-
       </div>
-    </section><!-- /Starter Section Section -->
-
-  </main>
+    `;
+    container.appendChild(card);
+  });
+</script>
 
   <footer id="footer" class="footer light-background">
 
