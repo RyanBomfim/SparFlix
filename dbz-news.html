@@ -29,6 +29,7 @@
   <!-- Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
   <link href="assets/css/about.css" rel="stylesheet">
+  <link href="assets/css/news.css" rel="stylesheet">
 </head>
 
 
@@ -267,15 +268,15 @@
     };
 
     card.innerHTML = `
-      <div class="row g-0 p-3">
+      <div class="row p-3">
         <div class="col-md-4">
           <img src="${noticia.imagem}" class="img-fluid rounded-start" alt="${noticia.titulo}">
         </div>
         <div class="col-md-8 p-3">
           <div class="card-body">
             <h3 class="card-title mb-3">${noticia.titulo}</h3>
-            <p class="card-text">${noticia.texto.substring(0, 150)}...</p>
-            <p class="card-text"><small class="text-body-secondary">Última atualização ${noticia.atualizado}</small></p>
+            <p class="card-text ">${noticia.texto.substring(0, 150)}...</p>
+            <p class="card-text"><small class="text-body-secondary">Última pinto ${noticia.atualizado}</small></p>
           </div>
         </div>
       </div>
@@ -301,7 +302,7 @@
     };
 
     card.innerHTML = `
-      <img src="${noticia.imagem}" class="card-img-top rounded-top" alt="${noticia.titulo}">
+      <img src="${noticia.imagem}" class="card-img-top img-fluid rounded-top" alt="${noticia.titulo}">
       <div class="card-body">
         <h4 class="card-title">${noticia.titulo}</h4>
         <p class="card-text">${noticia.texto.substring(0, 120)}...</p>
