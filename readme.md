@@ -7,7 +7,7 @@
 ## Sobre o Projeto
 O **Sparflix** nasceu de um projeto escolar chamado **Besser Animes**, que evoluiu para algo maior:
 um site totalmente dedicado ao **Dragon Ball Z**, reunindo **filmes, notícias e curiosidades** em um só lugar.
-Tudo isso com **design inspirado no anime**, cores vibrantes e animações dinâmicas. ⚡
+Tudo isso com **design inspirado no anime**, cores vibrantes e animações dinâmicas ⚡
 
 ---
 
