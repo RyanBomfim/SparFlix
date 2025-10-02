@@ -87,7 +87,14 @@ body {
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
+  padding-top: 70px; /* igual à altura do header */
 }
+@media(max-width: 1199px){
+  body {
+    padding-top: 90px; /* altura maior no mobile */
+  }
+}
+
 
 a {
   color: var(--accent-color);
@@ -162,25 +169,65 @@ h6 {
 }
 /* ====== Header ====== */
 .header {
-  position: fixed;
+  position: fixed;       /* fixa no topo */
   top: 0;
   left: 0;
   width: 100%;
-  background-color: rgba(7,7,8,0.85);
-  padding: 15px 40px;
-  z-index: 1000;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  transition: backdrop-filter 0.3s, background-color 0.3s;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-  border-bottom: 1px solid rgba(255,255,255,0.05);
+  background-color: var(--background-color); /* já escuro como no seu design */
+  padding: 15px 0;
+  transition: all 0.5s;
+  z-index: 997;
 }
 
-.header.scrolled {
-  backdrop-filter: blur(12px);
-  background-color: rgba(7,7,8,0.95);
+/* Escurecer ainda mais e blur ao scroll */
+.scrolled .header {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  --background-color: rgba(7,7,8,0.8);
+  border-bottom: 1px solid color-mix(in srgb, var(--default-color), transparent 80%);
 }
+
+
+
+.header .logo {
+  line-height: 1;
+}
+
+.header .logo img {
+  max-height: 36px;
+  margin-right: 8px;
+}
+
+.header .logo h1 {
+  font-size: 30px;
+  margin: 0;
+  font-weight: 400;
+  color: var(--heading-color);
+}
+
+.header .header-social-links {
+  padding-right: 15px;
+}
+
+.header .header-social-links a {
+  color: color-mix(in srgb, var(--default-color), transparent 40%);
+  padding-left: 6px;
+  display: inline-block;
+  transition: 0.3s;
+  font-size: 16px;
+}
+
+.header .header-social-links a:hover {
+  color: var(--accent-color);
+}
+
+.header .header-social-links a i {
+  line-height: 0px;
+}
+.scrolled .header {
+  --background-color: rgba(7, 7, 8, 0.8);
+}
+
 
 /* Logo */
 .header .logo {
