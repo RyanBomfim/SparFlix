@@ -34,30 +34,29 @@
 
 
 <body class="starter-page-page">
-<!-- Modal de Notícias -->
-<div class="modal fade" id="newsModal" tabindex="-1" aria-hidden="true">
-  <div class="modal-dialog modal-xl modal-dialog-centered">
-    <div class="modal-content bg-dark text-light rounded-4 shadow-lg border-0">
-      <div class="modal-header border-0">
-        <h3 class="modal-title fw-bold p-3" id="newsModalLabel"></h3>
-        <button type="button" class="btn-close btn-close-white " data-bs-dismiss="modal" aria-label="Fechar"></button>
-      </div>
-      <div class="modal-body justify-content-center
+  <!-- Modal de Notícias -->
+  <div class="modal fade" id="newsModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+      <div class="modal-content bg-dark text-light rounded-4 shadow-lg border-0">
+        <div class="modal-header border-0">
+          <h3 class="modal-title fw-bold p-3" id="newsModalLabel"></h3>
+          <button type="button" class="btn-close btn-close-white " data-bs-dismiss="modal" aria-label="Fechar"></button>
+        </div>
+        <div class="modal-body justify-content-center
         align-items-center text-center">
-        <img id="modalImage" class="img-fluid rounded mb-3 shadow w-100 p-2 "
-         alt="imagem banner notícia"
-        style="max-width: 700px;">
-        <p id="modalMeta" class="text-warning small mb-3"></p>
-        <div id="modalContent" style="line-height:1.7;"></div>
-      </div>
-      <div class="modal-footer border-0">
-        <button type="button" class="btn btn-outline-light rounded-pill px-4" data-bs-dismiss="modal">
-          Fechar
-        </button>
+          <img id="modalImage" class="img-fluid rounded mb-3 shadow w-100 p-2 " alt="imagem banner notícia"
+            style="max-width: 700px;">
+          <p id="modalMeta" class="text-warning small mb-3"></p>
+          <div id="modalContent" style="line-height:1.7;"></div>
+        </div>
+        <div class="modal-footer border-0">
+          <button type="button" class="btn btn-outline-light rounded-pill px-4" data-bs-dismiss="modal">
+            Fechar
+          </button>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
   <!-- Header -->
   <header id="header" class="header d-flex align-items-center sticky-top">
@@ -88,6 +87,7 @@
 
   <!-- Main -->
   <main class="main">
+
     <!-- Page Title -->
     <div class="page-title light-background">
       <div class="container d-lg-flex justify-content-between align-items-center">
@@ -100,71 +100,80 @@
         </nav>
       </div>
     </div>
-<!-- Starter Section Section -->
-<section id="starter-section" class="starter-section section">
-  <!-- Section Title -->
-  <div class="container section-title" data-aos="fade-up">
-    <span class="description-title">Notícias Recentes</span>
-    <h2 style="font-size: 2.5rem;">Notícias Recentes</h2>
-    <p style="font-size: 1.2rem;">As mais recentes notícias do mundo de Dragon Ball.</p>
-  </div><!-- End Section Title -->
 
-  <div id="news-container" class="container" data-aos="fade-up">
-    <!-- Cards vão ser gerados dinamicamente -->
-  </div>
+    <!-- Starter Section Section -->
+    <section id="starter-section" class="starter-section section">
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <span class="description-title">Notícias Recentes</span>
+        <h2 style="font-size: 2.5rem;">Notícias Recentes</h2>
+        <p style="font-size: 1.2rem;">As mais recentes notícias do mundo de Dragon Ball.</p>
+      </div><!-- End Section Title -->
 
-  <!-- Noticias extras em cards verticais -->
-<div class="container mt-5" data-aos="fade-up">
-  <div class="row" id="extra-news-container">
-    <!-- Cards extras serão gerados dinamicamente -->
-  </div>
-</div>
+      <div id="news-container" class="container" data-aos="fade-up">
+        <!-- Cards vão ser gerados dinamicamente -->
+      </div>
 
-</section><!-- /Starter Section Section -->
+      <!-- Noticias extras em cards verticais -->
+      <div class="container mt-5" data-aos="fade-up">
+        <div class="row" id="extra-news-container">
+          <!-- Cards extras serão gerados dinamicamente -->
+        </div>
+      </div>
 
+    </section><!-- /Starter Section Section -->
+  </main><!-- End #main -->
+
+  <!-- Footer -->
   <footer id="footer" class="footer light-background">
 
     <div class="container">
       <div class="row gy-3">
+
+        <!-- Endereço -->
         <div class="col-lg-3 col-md-6 d-flex">
           <i class="bi bi-geo-alt icon"></i>
           <div class="address">
-            <h4>Address</h4>
-            <p>A108 Adam Street</p>
-            <p>New York, NY 535022</p>
-            <p></p>
+            <h4>Endereço</h4>
+            <p>ETEC de Itaquera</p>
+            <p>São Paulo - SP</p>
+            <p>Brasil</p>
           </div>
-
         </div>
 
+        <!-- Contato -->
         <div class="col-lg-3 col-md-6 d-flex">
           <i class="bi bi-telephone icon"></i>
           <div>
-            <h4>Contact</h4>
+            <h4>Contato</h4>
             <p>
-              <strong>Phone:</strong> <span>+1 5589 55488 55</span><br>
-              <strong>Email:</strong> <span>info@example.com</span><br>
+              <strong>Telefone:</strong> <span>(11) 99999-9999</span><br>
+              <strong>Email:</strong> <span>ryanocbomfim@gmail.com</span><br>
             </p>
           </div>
         </div>
 
+        <!-- Horário -->
         <div class="col-lg-3 col-md-6 d-flex">
           <i class="bi bi-clock icon"></i>
           <div>
-            <h4>Opening Hours</h4>
+            <h4>Horário</h4>
             <p>
-              <strong>Mon-Sat:</strong> <span>11AM - 23PM</span><br>
-              <strong>Sunday</strong>: <span>Closed</span>
+              <strong>Seg-Sex:</strong> <span>08h - 18h</span><br>
+              <strong>Sábado:</strong> <span>08h - 12h</span><br>
+              <strong>Domingo:</strong> <span>Fechado</span>
             </p>
           </div>
         </div>
 
+        <!-- Redes sociais -->
         <div class="col-lg-3 col-md-6">
-          <h4>Follow Us</h4>
+          <h4>Siga-nos</h4>
           <div class="social-links d-flex">
-            <a href="#" class="twitter"><i class="bi bi-twitter-x"></i></a>
-            <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-            <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+            <a href="https://github.com/RyanBomfim/SparFlix" target="_blank" class="github"><i
+                class="bi bi-github"></i></a>
+            <a href="https://www.instagram.com/iam.ryan10" target="_blank" class="instagram"><i
+                class="bi bi-instagram"></i></a>
             <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
           </div>
         </div>
@@ -172,13 +181,13 @@
       </div>
     </div>
 
+    <!-- Direitos autorais -->
     <div class="container copyright text-center mt-4">
-      <p>© <span>Copyright</span> <strong class="px-1 sitename">Ryan Bomfim</strong> <span>All Rights Reserved</span></p>
-
+      <p>© <span>Copyright</span> <strong class="px-1 sitename">Ryan Bomfim</strong> <span>All Rights Reserved</span>
+      </p>
     </div>
 
-  </footer>
-
+  </footer><!-- End Footer -->
 
 
   <!-- Scroll Top -->
@@ -200,77 +209,77 @@
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
-<script>
-  // Lista de notícias principais (horizontais)
-  const noticias = [
-    {
-      titulo: "Dragon Ball Daima ganha trailer inédito",
-      texto: "O novo trailer de Dragon Ball Daima revelou cenas inéditas, mostrando Goku, Vegeta e outros personagens em versões infantis. A série promete trazer nostalgia e novidades para os fãs, com estreia marcada para outubro de 2024.",
-      imagem: "https://tse1.mm.bing.net/th/id/OIP.OGcMkd5BZN-yjbmqWjH70gHaEK?rs=1&pid=ImgDetMain&o=7&rm=3",
-      atualizado: "há 10 minutos"
-    },
-    {
-      titulo: "Akira Toriyama é homenageado no Japão",
-      texto: "Um grande evento em Tóquio homenageou Akira Toriyama, criador de Dragon Ball. A exposição trouxe artes originais, entrevistas inéditas e depoimentos de grandes nomes da indústria de mangás e animes.",
-      imagem: "https://tse4.mm.bing.net/th/id/OIP.FrJfeI43cqYt2s74odjZswAAAA?rs=1&pid=ImgDetMain&o=7&rm=3",
-      atualizado: "há 2 horas"
-    },
-    {
-      titulo: "Novo jogo de Dragon Ball anunciado",
-      texto: "A Bandai Namco confirmou o desenvolvimento de um novo jogo de Dragon Ball para consoles de nova geração. O jogo terá gráficos avançados, batalhas épicas e uma história inédita criada em parceria com a Toei Animation.",
-      imagem: "https://tse4.mm.bing.net/th/id/OIP.Iq0hrF5VxlkXZdOAKynFUQHaEK?rs=1&pid=ImgDetMain&o=7&rm=3",
-      atualizado: "há 1 dia"
-    }
-  ];
+  <script>
+    // Lista de notícias principais (horizontais)
+    const noticias = [
+      {
+        titulo: "Dragon Ball Daima ganha trailer inédito",
+        texto: "O novo trailer de Dragon Ball Daima revelou cenas inéditas, mostrando Goku, Vegeta e outros personagens em versões infantis. A série promete trazer nostalgia e novidades para os fãs, com estreia marcada para outubro de 2024.",
+        imagem: "https://tse1.mm.bing.net/th/id/OIP.OGcMkd5BZN-yjbmqWjH70gHaEK?rs=1&pid=ImgDetMain&o=7&rm=3",
+        atualizado: "há 10 minutos"
+      },
+      {
+        titulo: "Akira Toriyama é homenageado no Japão",
+        texto: "Um grande evento em Tóquio homenageou Akira Toriyama, criador de Dragon Ball. A exposição trouxe artes originais, entrevistas inéditas e depoimentos de grandes nomes da indústria de mangás e animes.",
+        imagem: "https://tse4.mm.bing.net/th/id/OIP.FrJfeI43cqYt2s74odjZswAAAA?rs=1&pid=ImgDetMain&o=7&rm=3",
+        atualizado: "há 2 horas"
+      },
+      {
+        titulo: "Novo jogo de Dragon Ball anunciado",
+        texto: "A Bandai Namco confirmou o desenvolvimento de um novo jogo de Dragon Ball para consoles de nova geração. O jogo terá gráficos avançados, batalhas épicas e uma história inédita criada em parceria com a Toei Animation.",
+        imagem: "https://tse4.mm.bing.net/th/id/OIP.Iq0hrF5VxlkXZdOAKynFUQHaEK?rs=1&pid=ImgDetMain&o=7&rm=3",
+        atualizado: "há 1 dia"
+      }
+    ];
 
-  // Noticias extras (verticais)
-  const noticiasExtras = [
-    {
-      titulo: "Dragon Ball Super retorna em 2025",
-      texto: "A Toei Animation confirmou oficialmente o retorno de Dragon Ball Super em 2025 com uma nova saga. A produção promete foco em batalhas épicas e desenvolvimento inédito dos personagens.",
-      imagem: "https://tse2.mm.bing.net/th/id/OIP.Ps7BDsG9s1GwcwV2ZTkz8QHaEK?rs=1&pid=ImgDetMain",
-      atualizado: "há 3 dias"
-    },
-    {
-      titulo: "Novo mangá spin-off de Dragon Ball",
-      texto: "Um novo spin-off de Dragon Ball focado nos vilões mais icônicos está em produção. A história explorará as origens e motivações de Freeza, Cell e Majin Buu.",
-      imagem: "https://tse2.mm.bing.net/th/id/OIP.q1NDbE8F0plzDLhRG5FlHgHaEK?rs=1&pid=ImgDetMain",
-      atualizado: "há 5 dias"
-    },
-    {
-      titulo: "Coleção especial de figures lançada",
-      texto: "Uma nova coleção premium de action figures de Dragon Ball foi anunciada. Cada figura vem com iluminação especial e detalhes realistas que recriam cenas clássicas do anime.",
-      imagem: "https://tse1.mm.bing.net/th/id/OIP.-lZuJhxW1P6Gklf1XD7j1AHaEK?rs=1&pid=ImgDetMain",
-      atualizado: "há 1 semana"
-    }
-  ];
+    // Noticias extras (verticais)
+    const noticiasExtras = [
+      {
+        titulo: "Dragon Ball Super retorna em 2025",
+        texto: "A Toei Animation confirmou oficialmente o retorno de Dragon Ball Super em 2025 com uma nova saga. A produção promete foco em batalhas épicas e desenvolvimento inédito dos personagens.",
+        imagem: "https://tse2.mm.bing.net/th/id/OIP.Ps7BDsG9s1GwcwV2ZTkz8QHaEK?rs=1&pid=ImgDetMain",
+        atualizado: "há 3 dias"
+      },
+      {
+        titulo: "Novo mangá spin-off de Dragon Ball",
+        texto: "Um novo spin-off de Dragon Ball focado nos vilões mais icônicos está em produção. A história explorará as origens e motivações de Freeza, Cell e Majin Buu.",
+        imagem: "https://tse2.mm.bing.net/th/id/OIP.q1NDbE8F0plzDLhRG5FlHgHaEK?rs=1&pid=ImgDetMain",
+        atualizado: "há 5 dias"
+      },
+      {
+        titulo: "Coleção especial de figures lançada",
+        texto: "Uma nova coleção premium de action figures de Dragon Ball foi anunciada. Cada figura vem com iluminação especial e detalhes realistas que recriam cenas clássicas do anime.",
+        imagem: "https://tse1.mm.bing.net/th/id/OIP.-lZuJhxW1P6Gklf1XD7j1AHaEK?rs=1&pid=ImgDetMain",
+        atualizado: "há 1 semana"
+      }
+    ];
 
-  // Container onde os cards serão inseridos
-  const container = document.getElementById("news-container");
-  const extraContainer = document.getElementById("extra-news-container");
+    // Container onde os cards serão inseridos
+    const container = document.getElementById("news-container");
+    const extraContainer = document.getElementById("extra-news-container");
 
-  // Referências da modal
-  const modal = new bootstrap.Modal(document.getElementById('newsModal'));
-  const modalTitle = document.getElementById('newsModalLabel');
-  const modalImage = document.getElementById('modalImage');
-  const modalMeta = document.getElementById('modalMeta');
-  const modalContent = document.getElementById('modalContent');
+    // Referências da modal
+    const modal = new bootstrap.Modal(document.getElementById('newsModal'));
+    const modalTitle = document.getElementById('newsModalLabel');
+    const modalImage = document.getElementById('modalImage');
+    const modalMeta = document.getElementById('modalMeta');
+    const modalContent = document.getElementById('modalContent');
 
-  // Renderiza cards horizontais
-  noticias.forEach(noticia => {
-    const card = document.createElement("div");
-    card.className = "card mb-4 bg-dark shadow-lg border-0";
-    card.style.cursor = "pointer";
+    // Renderiza cards horizontais
+    noticias.forEach(noticia => {
+      const card = document.createElement("div");
+      card.className = "card mb-4 bg-dark shadow-lg border-0";
+      card.style.cursor = "pointer";
 
-    card.onclick = () => {
-      modalTitle.textContent = noticia.titulo;
-      modalImage.src = noticia.imagem;
-      modalMeta.textContent = `Última atualização ${noticia.atualizado}`;
-      modalContent.innerHTML = `<p>${noticia.texto}</p>`;
-      modal.show();
-    };
+      card.onclick = () => {
+        modalTitle.textContent = noticia.titulo;
+        modalImage.src = noticia.imagem;
+        modalMeta.textContent = `Última atualização ${noticia.atualizado}`;
+        modalContent.innerHTML = `<p>${noticia.texto}</p>`;
+        modal.show();
+      };
 
-    card.innerHTML = `
+      card.innerHTML = `
       <div class="row p-3">
         <div class="col-md-4">
           <img src="${noticia.imagem}" class="img-fluid rounded-start" alt="${noticia.titulo}">
@@ -284,27 +293,27 @@
         </div>
       </div>
     `;
-    container.appendChild(card);
-  });
+      container.appendChild(card);
+    });
 
-  // Renderiza cards verticais extras
-  noticiasExtras.forEach(noticia => {
-    const col = document.createElement("div");
-    col.className = "col-lg-4 col-md-6 mb-4";
+    // Renderiza cards verticais extras
+    noticiasExtras.forEach(noticia => {
+      const col = document.createElement("div");
+      col.className = "col-lg-4 col-md-6 mb-4";
 
-    const card = document.createElement("div");
-    card.className = "card h-100 bg-dark text-light shadow-lg border-0";
-    card.style.cursor = "pointer";
+      const card = document.createElement("div");
+      card.className = "card h-100 bg-dark text-light shadow-lg border-0";
+      card.style.cursor = "pointer";
 
-    card.onclick = () => {
-      modalTitle.textContent = noticia.titulo;
-      modalImage.src = noticia.imagem;
-      modalMeta.textContent = `Última atualização ${noticia.atualizado}`;
-      modalContent.innerHTML = `<p>${noticia.texto}</p>`;
-      modal.show();
-    };
+      card.onclick = () => {
+        modalTitle.textContent = noticia.titulo;
+        modalImage.src = noticia.imagem;
+        modalMeta.textContent = `Última atualização ${noticia.atualizado}`;
+        modalContent.innerHTML = `<p>${noticia.texto}</p>`;
+        modal.show();
+      };
 
-    card.innerHTML = `
+      card.innerHTML = `
       <img src="${noticia.imagem}" class="card-img-top img-fluid rounded-top" alt="${noticia.titulo}">
       <div class="card-body">
         <h4 class="card-title">${noticia.titulo}</h4>
@@ -315,10 +324,10 @@
       </div>
     `;
 
-    col.appendChild(card);
-    extraContainer.appendChild(col);
-  });
-</script>
+      col.appendChild(card);
+      extraContainer.appendChild(col);
+    });
+  </script>
 
 
 
