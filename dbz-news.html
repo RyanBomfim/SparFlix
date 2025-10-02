@@ -1,334 +1,232 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-
+<html lang="pt-BR">
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Notícias - Sparflix</title>
-  <meta name="description" content="S">
-  <meta name="keywords" content="">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sparflix - Notícias</title>
 
-  <!-- Favicons -->
-  <link href="assets/img/favicon.ico" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <!-- Favicon e Fonts -->
+  <link href="assets/img/logo.png" rel="icon" />
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet" />
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com" rel="preconnect">
-  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
-    rel="stylesheet">
+  <!-- Vendor CSS -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
 
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <!-- Main CSS -->
+  <link href="assets/css/style.css" rel="stylesheet" />
 
-  <!-- Main CSS File -->
-  <link href="assets/css/style.css" rel="stylesheet">
-  <link href="assets/css/about.css" rel="stylesheet">
-  <link href="assets/css/news.css" rel="stylesheet">
+  <style>
+    /* Estilos específicos */
+    .news-card .card-img-top { height: 200px; object-fit: cover; transition: transform 0.3s; }
+    .news-card:hover .card-img-top { transform: scale(1.05); }
+    .tag-badge { cursor: pointer; margin-right: 6px; }
+    .active-tag { background:#0d6efd; color:#fff; }
+    .news-meta { font-size: 0.9rem; color: #6c757d; }
+    .no-results { text-align:center; padding:40px 0; color:#6c757d; }
+    .cursor-pointer { cursor: pointer; }
+  </style>
 </head>
+<body>
 
+<!-- Header -->
+<header class="header d-flex align-items-center sticky-top bg-dark">
+  <div class="container d-flex justify-content-between align-items-center">
+    <a href="index.html" class="logo d-flex align-items-center">
+      <img src="assets/img/logo.png" alt="Sparflix" style="height:46px;">
+    </a>
+    <nav class="navmenu">
+      <ul class="d-flex list-unstyled mb-0">
+        <li class="me-3"><a href="index.html">Home</a></li>
+        <li class="me-3"><a href="about.html">Sobre</a></li>
+        <li class="me-3"><a href="dbz-movies.html">Filmes</a></li>
+        <li><a href="dbz-news.html" class="active">Notícias</a></li>
+      </ul>
+    </nav>
+    <div class="header-social-links">
+      <a href="mailto:ryanocbomfim@gmail.com"><i class="bi bi-google"></i></a>
+      <a href="https://www.instagram.com/iam.ryan10" target="_blank"><i class="bi bi-instagram"></i></a>
+    </div>
+  </div>
+</header>
 
-<body class="starter-page-page">
-  <!-- Modal de Notícias -->
-  <div class="modal fade" id="newsModal" tabindex="-1" aria-hidden="true">
-    <div class="modal-dialog modal-xl modal-dialog-centered">
-      <div class="modal-content bg-dark text-light rounded-4 shadow-lg border-0">
-        <div class="modal-header border-0">
-          <h3 class="modal-title fw-bold p-3" id="newsModalLabel"></h3>
-          <button type="button" class="btn-close btn-close-white " data-bs-dismiss="modal" aria-label="Fechar"></button>
-        </div>
-        <div class="modal-body justify-content-center
-        align-items-center text-center">
-          <img id="modalImage" class="img-fluid rounded mb-3 shadow w-100 p-2 " alt="imagem banner notícia"
-            style="max-width: 700px;">
-          <p id="modalMeta" class="text-warning small mb-3"></p>
-          <div id="modalContent" style="line-height:1.7;"></div>
-        </div>
-        <div class="modal-footer border-0">
-          <button type="button" class="btn btn-outline-light rounded-pill px-4" data-bs-dismiss="modal">
-            Fechar
-          </button>
-        </div>
-      </div>
+<!-- Main -->
+<main class="container my-5">
+
+  <!-- Page Title -->
+  <h1 class="mb-4 text-center dbz-sub-title">N<span class="dbz-o">O</span>tícias</h1>
+
+  <!-- Busca e filtros -->
+  <div class="row mb-4 g-3 align-items-center">
+    <div class="col-md-6">
+      <input id="searchInput" class="form-control" type="search" placeholder="Buscar notícias..." />
+    </div>
+    <div class="col-md-3">
+      <select id="categorySelect" class="form-select">
+        <option value="">Todas as categorias</option>
+        <option value="Filmes">Filmes</option>
+        <option value="Mangá">Mangá</option>
+        <option value="Eventos">Eventos</option>
+        <option value="Análises">Análises</option>
+        <option value="Entrevistas">Entrevistas</option>
+      </select>
+    </div>
+    <div class="col-md-3 text-end">
+      <button id="clearFilters" class="btn btn-outline-secondary">Limpar filtros</button>
     </div>
   </div>
 
-  <!-- Header -->
-  <header id="header" class="header d-flex align-items-center sticky-top">
-    <div class="container position-relative d-flex align-items-center justify-content-between">
+  <!-- Noticias principais (horizontais) -->
+  <div id="mainNews" class="mb-5"></div>
 
-      <a href="index.html" class="logo d-flex align-items-center justify-content-center me-auto me-xl-0">
-        <img src="assets/img/favicon.ico" alt="">
-      </a>
+  <!-- Noticias extras (cards verticais) -->
+  <div class="row" id="extraNews"></div>
 
-      <nav id="navmenu" class="navmenu">
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">Sobre</a></li>
-          <li><a href="dbz-movies.html">Filmes</a></li>
-          <li><a href="dbz-news.html" class="active">Notícias</a></li>
-        </ul>
-        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-      </nav>
+  <!-- Paginação -->
+  <nav aria-label="Paginação notícias" class="mt-4">
+    <ul id="pagination" class="pagination justify-content-center"></ul>
+  </nav>
+</main>
 
-      <div class="header-social-links">
-        <a href="ryanocbomfim@gmail.com" class="gmail"><i class="bi bi-google"></i></a>
-        <a href="https://www.instagram.com/iam.ryan10" class="instagram"><i class="bi bi-instagram"></i></a>
-        <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+<!-- Modal -->
+<div class="modal fade" id="newsModal" tabindex="-1" aria-labelledby="newsModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header bg-dark text-white">
+        <h5 class="modal-title" id="newsModalLabel"></h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
       </div>
-
-    </div>
-  </header>
-
-  <!-- Main -->
-  <main class="main">
-
-    <!-- Page Title -->
-    <div class="page-title light-background">
-      <div class="container d-lg-flex justify-content-between align-items-center">
-        <h1 class="mb-2 mb-lg-0 dbz-sub-title">N<span class="dbz-o">O</span>tícias</h1>
-        <nav class="breadcrumbs">
-          <ol>
-            <li><a href="index.html">Home</a></li>
-            <li class="current">News</li>
-          </ol>
-        </nav>
+      <div class="modal-body text-center">
+        <img id="modalImage" class="img-fluid mb-3" alt="">
+        <div id="modalMeta" class="news-meta mb-3"></div>
+        <div id="modalContent"></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Fechar</button>
       </div>
     </div>
+  </div>
+</div>
 
-    <!-- Starter Section Section -->
-    <section id="starter-section" class="starter-section section">
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <span class="description-title">Notícias Recentes</span>
-        <h2 style="font-size: 2.5rem;">Notícias Recentes</h2>
-        <p style="font-size: 1.2rem;">As mais recentes notícias do mundo de Dragon Ball.</p>
-      </div><!-- End Section Title -->
-
-      <div id="news-container" class="container" data-aos="fade-up">
-        <!-- Cards vão ser gerados dinamicamente -->
-      </div>
-
-      <!-- Noticias extras em cards verticais -->
-      <div class="container mt-5" data-aos="fade-up">
-        <div class="row" id="extra-news-container">
-          <!-- Cards extras serão gerados dinamicamente -->
-        </div>
-      </div>
-
-    </section><!-- /Starter Section Section -->
-  </main><!-- End #main -->
-
-  <!-- Footer -->
-  <footer id="footer" class="footer light-background">
-
+<footer class="footer light-background mt-5 py-4 text-center">
   <div class="container">
-    <div class="row gy-3">
-
-      <!-- Sobre o Projeto -->
-      <div class="col-lg-3 col-md-6 d-flex">
-        <i class="bi bi-info-circle icon"></i>
-        <div class="address">
-          <h4>Sobre</h4>
-          <p>Sparflix é um projeto de conclusão de curso da ETEC,
-          dedicado a reunir filmes, notícias e curiosidades do universo Dragon Ball Z.</p>
-        </div>
-      </div>
-
-      <!-- Contato -->
-      <div class="col-lg-3 col-md-6 d-flex">
-        <i class="bi bi-telephone icon"></i>
-        <div>
-          <h4>Contato</h4>
-          <p>
-            <strong>Email:</strong> <span>ryanocbomfim@gmail.com</span><br>
-            <strong>Telefone:</strong> <span>(11) 99999-9999</span>
-          </p>
-        </div>
-      </div>
-
-      <!-- Links Úteis -->
-      <div class="col-lg-3 col-md-6 d-flex">
-        <i class="bi bi-link-45deg icon"></i>
-        <div>
-          <h4>Links Úteis</h4>
-          <p>
-            <a href="index.html">Home</a><br>
-            <a href="about.html">Sobre</a><br>
-            <a href="dbz-movies.html">Filmes</a><br>
-            <a href="dbz-news.html">Notícias</a>
-          </p>
-        </div>
-      </div>
-
-      <!-- Redes sociais -->
-      <div class="col-lg-3 col-md-6">
-        <h4>Siga-nos</h4>
-        <div class="social-links d-flex">
-          <a href="https://github.com/RyanBomfim/SparFlix" target="_blank" class="github"><i class="bi bi-github"></i></a>
-          <a href="https://www.instagram.com/iam.ryan10" target="_blank" class="instagram"><i class="bi bi-instagram"></i></a>
-          <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- Direitos autorais -->
-  <div class="container copyright text-center mt-4">
     <p>© 2025 <strong>SparTask / Sparflix</strong> | Projeto de Conclusão de Curso - ETEC</p>
   </div>
-
 </footer>
-<!-- End Footer -->
 
+<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script>
+const noticias = [
+  {id:1,titulo:"Dragon Ball Daima ganha trailer inédito",texto:"O novo trailer revelou cenas inéditas com Goku e Vegeta em versões infantis.",imagem:"https://tse1.mm.bing.net/th/id/OIP.OGcMkd5BZN-yjbmqWjH70gHaEK?rs=1&pid=ImgDetMain&o=7&rm=3",atualizado:"há 10 minutos",categoria:"Filmes",tags:["Goku","Trailer"]},
+  {id:2,titulo:"Akira Toriyama é homenageado",texto:"Evento em Tóquio trouxe artes originais e depoimentos de grandes nomes do mangá.",imagem:"https://tse4.mm.bing.net/th/id/OIP.FrJfeI43cqYt2s74odjZswAAAA?rs=1&pid=ImgDetMain&o=7&rm=3",atualizado:"há 2 horas",categoria:"Eventos",tags:["Toriyama","Evento"]},
+  {id:3,titulo:"Novo jogo de Dragon Ball anunciado",texto:"Novo jogo para consoles de nova geração com gráficos avançados e história inédita.",imagem:"https://tse4.mm.bing.net/th/id/OIP.Iq0hrF5VxlkXZdOAKynFUQHaEK?rs=1&pid=ImgDetMain&o=7&rm=3",atualizado:"há 1 dia",categoria:"Filmes",tags:["Jogo","Bandai"]}
+];
 
-  <!-- Scroll Top -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
-      class="bi bi-arrow-up-short"></i></a>
+const noticiasExtras = [
+  {id:4,titulo:"Dragon Ball Super retorna em 2025",texto:"Nova saga com foco em batalhas épicas e desenvolvimento dos personagens.",imagem:"https://tse2.mm.bing.net/th/id/OIP.Ps7BDsG9s1GwcwV2ZTkz8QHaEK?rs=1&pid=ImgDetMain",atualizado:"há 3 dias",categoria:"Filmes",tags:["Super","Saga"]},
+  {id:5,titulo:"Novo mangá spin-off",texto:"História explorará as origens de Freeza, Cell e Majin Buu.",imagem:"https://tse2.mm.bing.net/th/id/OIP.q1NDbE8F0plzDLhRG5FlHgHaEK?rs=1&pid=ImgDetMain",atualizado:"há 5 dias",categoria:"Mangá",tags:["Mangá","SpinOff"]},
+  {id:6,titulo:"Coleção especial de figures",texto:"Coleção premium de action figures de Dragon Ball com iluminação e detalhes realistas.",imagem:"https://tse1.mm.bing.net/th/id/OIP.-lZuJhxW1P6Gklf1XD7j1AHaEK?rs=1&pid=ImgDetMain",atualizado:"há 1 semana",categoria:"Filmes",tags:["Figures","Coleção"]}
+];
 
-  <!-- Preloader -->
-  <div id="preloader"></div>
+const perPage = 3;
+let tagFilter = "";
+let newsModal = null;
 
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+document.addEventListener("DOMContentLoaded",()=>{
+  newsModal = new bootstrap.Modal(document.getElementById('newsModal'));
+  document.getElementById('searchInput').addEventListener('input',()=>renderNews(1));
+  document.getElementById('categorySelect').addEventListener('change',()=>renderNews(1));
+  document.getElementById('clearFilters').addEventListener('click',()=>{
+    document.getElementById('searchInput').value='';
+    document.getElementById('categorySelect').value='';
+    tagFilter='';
+    renderNews(1);
+  });
+  renderNews(1);
+});
 
-  <!-- Main JS File -->
-  <script src="assets/js/main.js"></script>
-  <script>
-    // Lista de notícias principais (horizontais)
-    const noticias = [
-      {
-        titulo: "Dragon Ball Daima ganha trailer inédito",
-        texto: "O novo trailer de Dragon Ball Daima revelou cenas inéditas, mostrando Goku, Vegeta e outros personagens em versões infantis. A série promete trazer nostalgia e novidades para os fãs, com estreia marcada para outubro de 2024.",
-        imagem: "https://tse1.mm.bing.net/th/id/OIP.OGcMkd5BZN-yjbmqWjH70gHaEK?rs=1&pid=ImgDetMain&o=7&rm=3",
-        atualizado: "há 10 minutos"
-      },
-      {
-        titulo: "Akira Toriyama é homenageado no Japão",
-        texto: "Um grande evento em Tóquio homenageou Akira Toriyama, criador de Dragon Ball. A exposição trouxe artes originais, entrevistas inéditas e depoimentos de grandes nomes da indústria de mangás e animes.",
-        imagem: "https://tse4.mm.bing.net/th/id/OIP.FrJfeI43cqYt2s74odjZswAAAA?rs=1&pid=ImgDetMain&o=7&rm=3",
-        atualizado: "há 2 horas"
-      },
-      {
-        titulo: "Novo jogo de Dragon Ball anunciado",
-        texto: "A Bandai Namco confirmou o desenvolvimento de um novo jogo de Dragon Ball para consoles de nova geração. O jogo terá gráficos avançados, batalhas épicas e uma história inédita criada em parceria com a Toei Animation.",
-        imagem: "https://tse4.mm.bing.net/th/id/OIP.Iq0hrF5VxlkXZdOAKynFUQHaEK?rs=1&pid=ImgDetMain&o=7&rm=3",
-        atualizado: "há 1 dia"
-      }
-    ];
+function renderNews(page=1){
+  const q = document.getElementById('searchInput').value.toLowerCase();
+  const category = document.getElementById('categorySelect').value;
 
-    // Noticias extras (verticais)
-    const noticiasExtras = [
-      {
-        titulo: "Dragon Ball Super retorna em 2025",
-        texto: "A Toei Animation confirmou oficialmente o retorno de Dragon Ball Super em 2025 com uma nova saga. A produção promete foco em batalhas épicas e desenvolvimento inédito dos personagens.",
-        imagem: "https://tse2.mm.bing.net/th/id/OIP.Ps7BDsG9s1GwcwV2ZTkz8QHaEK?rs=1&pid=ImgDetMain",
-        atualizado: "há 3 dias"
-      },
-      {
-        titulo: "Novo mangá spin-off de Dragon Ball",
-        texto: "Um novo spin-off de Dragon Ball focado nos vilões mais icônicos está em produção. A história explorará as origens e motivações de Freeza, Cell e Majin Buu.",
-        imagem: "https://tse2.mm.bing.net/th/id/OIP.q1NDbE8F0plzDLhRG5FlHgHaEK?rs=1&pid=ImgDetMain",
-        atualizado: "há 5 dias"
-      },
-      {
-        titulo: "Coleção especial de figures lançada",
-        texto: "Uma nova coleção premium de action figures de Dragon Ball foi anunciada. Cada figura vem com iluminação especial e detalhes realistas que recriam cenas clássicas do anime.",
-        imagem: "https://tse1.mm.bing.net/th/id/OIP.-lZuJhxW1P6Gklf1XD7j1AHaEK?rs=1&pid=ImgDetMain",
-        atualizado: "há 1 semana"
-      }
-    ];
+  const filteredMain = noticias.filter(a=>{
+    const matchSearch = q==="" || (a.titulo + " " + a.texto + " " + a.tags.join(" ")).toLowerCase().includes(q);
+    const matchCategory = !category || a.categoria===category;
+    const matchTag = !tagFilter || a.tags.includes(tagFilter);
+    return matchSearch && matchCategory && matchTag;
+  });
 
-    // Container onde os cards serão inseridos
-    const container = document.getElementById("news-container");
-    const extraContainer = document.getElementById("extra-news-container");
+  const filteredExtra = noticiasExtras.filter(a=>{
+    const matchSearch = q==="" || (a.titulo + " " + a.texto + " " + a.tags.join(" ")).toLowerCase().includes(q);
+    const matchCategory = !category || a.categoria===category;
+    const matchTag = !tagFilter || a.tags.includes(tagFilter);
+    return matchSearch && matchCategory && matchTag;
+  });
 
-    // Referências da modal
-    const modal = new bootstrap.Modal(document.getElementById('newsModal'));
-    const modalTitle = document.getElementById('newsModalLabel');
-    const modalImage = document.getElementById('modalImage');
-    const modalMeta = document.getElementById('modalMeta');
-    const modalContent = document.getElementById('modalContent');
-
-    // Renderiza cards horizontais
-    noticias.forEach(noticia => {
-      const card = document.createElement("div");
-      card.className = "card mb-4 bg-dark shadow-lg border-0";
-      card.style.cursor = "pointer";
-
-      card.onclick = () => {
-        modalTitle.textContent = noticia.titulo;
-        modalImage.src = noticia.imagem;
-        modalMeta.textContent = `Última atualização ${noticia.atualizado}`;
-        modalContent.innerHTML = `<p>${noticia.texto}</p>`;
-        modal.show();
-      };
-
-      card.innerHTML = `
-      <div class="row p-3">
-        <div class="col-md-4">
-          <img src="${noticia.imagem}" class="img-fluid rounded-start" alt="${noticia.titulo}">
-        </div>
+  // Render principais (horizontais)
+  const mainContainer = document.getElementById('mainNews');
+  mainContainer.innerHTML="";
+  filteredMain.forEach(a=>{
+    const card = document.createElement('div');
+    card.className="card mb-4 bg-dark shadow-lg border-0 cursor-pointer";
+    card.innerHTML=`
+      <div class="row g-0">
+        <div class="col-md-4"><img src="${a.imagem}" class="img-fluid rounded-start" alt="${a.titulo}"></div>
         <div class="col-md-8 p-3">
-          <div class="card-body">
-            <h3 class="card-title mb-3">${noticia.titulo}</h3>
-            <p class="card-text ">${noticia.texto.substring(0, 150)}...</p>
-            <p class="card-text"><small class="text-body-secondary">Última pinto ${noticia.atualizado}</small></p>
-          </div>
+          <h3 class="text-white">${a.titulo}</h3>
+          <p class="text-light">${a.texto}</p>
+          <small class="text-warning">Última atualização ${a.atualizado}</small>
         </div>
-      </div>
-    `;
-      container.appendChild(card);
-    });
+      </div>`;
+    card.onclick=()=>openModal(a);
+    mainContainer.appendChild(card);
+  });
 
-    // Renderiza cards verticais extras
-    noticiasExtras.forEach(noticia => {
-      const col = document.createElement("div");
-      col.className = "col-lg-4 col-md-6 mb-4";
-
-      const card = document.createElement("div");
-      card.className = "card h-100 bg-dark text-light shadow-lg border-0";
-      card.style.cursor = "pointer";
-
-      card.onclick = () => {
-        modalTitle.textContent = noticia.titulo;
-        modalImage.src = noticia.imagem;
-        modalMeta.textContent = `Última atualização ${noticia.atualizado}`;
-        modalContent.innerHTML = `<p>${noticia.texto}</p>`;
-        modal.show();
-      };
-
-      card.innerHTML = `
-      <img src="${noticia.imagem}" class="card-img-top img-fluid rounded-top" alt="${noticia.titulo}">
+  // Render extras (cards verticais)
+  const extraContainer = document.getElementById('extraNews');
+  extraContainer.innerHTML="";
+  filteredExtra.forEach(a=>{
+    const col = document.createElement('div');
+    col.className="col-lg-4 col-md-6 mb-4";
+    const card = document.createElement('div');
+    card.className="card h-100 bg-dark text-light shadow-lg border-0 cursor-pointer";
+    card.innerHTML=`
+      <img src="${a.imagem}" class="card-img-top rounded-top" alt="${a.titulo}">
       <div class="card-body">
-        <h4 class="card-title">${noticia.titulo}</h4>
-        <p class="card-text">${noticia.texto.substring(0, 120)}...</p>
+        <h5>${a.titulo}</h5>
+        <p>${a.texto}</p>
+        <div>${a.tags.map(t=>`<span class="badge bg-light text-dark tag-badge ${t===tagFilter?'active-tag':''}" onclick="filterByTag('${t}')">${t}</span>`).join(' ')}</div>
       </div>
-      <div class="card-footer border-0">
-        <small class="text-body-secondary">Última atualização ${noticia.atualizado}</small>
-      </div>
-    `;
+      <div class="card-footer border-0"><small class="text-body-secondary">Última atualização ${a.atualizado}</small></div>`;
+    card.onclick=()=>openModal(a);
+    col.appendChild(card);
+    extraContainer.appendChild(col);
+  });
 
-      col.appendChild(card);
-      extraContainer.appendChild(col);
-    });
-  </script>
+  renderPagination(1,1); // opcional: aqui pode implementar paginação real se desejar
+}
 
+function openModal(article){
+  document.getElementById('newsModalLabel').textContent = article.titulo;
+  const img = document.getElementById('modalImage');
+  img.src = article.imagem;
+  img.alt = article.titulo;
+  document.getElementById('modalMeta').textContent = `Última atualização ${article.atualizado} • ${article.categoria}`;
+  document.getElementById('modalContent').innerHTML = `<p>${article.texto}</p>`;
+  newsModal.show();
+}
 
+function filterByTag(tag){
+  tagFilter = (tagFilter===tag)?"":tag;
+  renderNews(1);
+}
 
+function renderPagination(total,current){
+  // Aqui você pode implementar a paginação completa, se quiser
+}
+</script>
 </body>
-
 </html>
