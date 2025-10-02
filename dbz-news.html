@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,7 +10,9 @@
   <link href="assets/img/logo.png" rel="icon" />
   <link href="https://fonts.googleapis.com" rel="preconnect" />
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@400;600&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@400;600&display=swap"
+    rel="stylesheet" />
 
   <!-- Vendor CSS -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
@@ -21,19 +24,47 @@
 
   <style>
     /* Estilos específicos */
-    .news-card .card-img-top { height: 200px; object-fit: cover; transition: transform 0.3s; }
-    .news-card:hover .card-img-top { transform: scale(1.05); }
-    .tag-badge { cursor: pointer; margin-right: 6px; }
-    .active-tag { background:#0d6efd; color:#fff; }
-    .news-meta { font-size: 0.9rem; color: #6c757d; }
-    .no-results { text-align:center; padding:40px 0; color:#6c757d; }
-    .cursor-pointer { cursor: pointer; }
+    .news-card .card-img-top {
+      height: 200px;
+      object-fit: cover;
+      transition: transform 0.3s;
+    }
+
+    .news-card:hover .card-img-top {
+      transform: scale(1.05);
+    }
+
+    .tag-badge {
+      cursor: pointer;
+      margin-right: 6px;
+    }
+
+    .active-tag {
+      background: #0d6efd;
+      color: #fff;
+    }
+
+    .news-meta {
+      font-size: 0.9rem;
+      color: #6c757d;
+    }
+
+    .no-results {
+      text-align: center;
+      padding: 40px 0;
+      color: #6c757d;
+    }
+
+    .cursor-pointer {
+      cursor: pointer;
+    }
   </style>
 </head>
+
 <body>
 
-<!-- Header -->
- <header id="header" class="header d-flex align-items-center sticky-top">
+  <!-- Header -->
+  <header id="header" class="header d-flex align-items-center sticky-top">
     <div class="container position-relative d-flex align-items-center justify-content-between">
 
       <a href="index.html" class="logo d-flex align-items-center justify-content-center me-auto me-xl-0">
@@ -43,7 +74,7 @@
       <nav id="navmenu" class="navmenu">
         <ul>
           <li><a href="index.html">Home</a></li>
-          <li><a href="about.html" >Sobre</a></li>
+          <li><a href="about.html">Sobre</a></li>
           <li><a href="dbz-movies.html">Filmes</a></li>
           <li><a href="dbz-news.html" class="active">Notícias</a></li>
         </ul>
@@ -59,178 +90,184 @@
     </div>
   </header>
 
-<!-- Main -->
-<main class="container my-5">
+  <!-- Main -->
+  <main class="container my-5">
 
-  <!-- Page Title -->
-  <h1 class="mb-4 text-center dbz-sub-title">N<span class="dbz-o">O</span>tícias</h1>
+    <!-- Page Title -->
+    <h1 class="mb-4 text-center dbz-sub-title">N<span class="dbz-o">O</span>tícias</h1>
 
-  <!-- Busca e filtros -->
-  <div class="row mb-4 g-3 align-items-center">
-    <div class="col-md-6">
-      <input id="searchInput" class="form-control" type="search" placeholder="Buscar notícias..." />
+    <!-- Busca e filtros -->
+    <div class="row mb-4 g-3 align-items-center">
+      <div class="col-md-6">
+        <input id="searchInput" class="form-control" type="search" placeholder="Buscar notícias..." />
+      </div>
+      <div class="col-md-3">
+        <select id="categorySelect" class="form-select">
+          <option value="">Todas as categorias</option>
+          <option value="Filmes">Filmes</option>
+          <option value="Mangá">Mangá</option>
+          <option value="Eventos">Eventos</option>
+          <option value="Análises">Análises</option>
+          <option value="Entrevistas">Entrevistas</option>
+        </select>
+      </div>
+      <div class="col-md-3 text-end">
+        <button id="clearFilters" class="btn btn-outline-secondary">Limpar filtros</button>
+      </div>
     </div>
-    <div class="col-md-3">
-      <select id="categorySelect" class="form-select">
-        <option value="">Todas as categorias</option>
-        <option value="Filmes">Filmes</option>
-        <option value="Mangá">Mangá</option>
-        <option value="Eventos">Eventos</option>
-        <option value="Análises">Análises</option>
-        <option value="Entrevistas">Entrevistas</option>
-      </select>
-    </div>
-    <div class="col-md-3 text-end">
-      <button id="clearFilters" class="btn btn-outline-secondary">Limpar filtros</button>
+
+    <!-- Noticias principais (horizontais) -->
+    <div id="mainNews" class="mb-5"></div>
+
+    <!-- Noticias extras (cards verticais) -->
+    <div class="row" id="extraNews"></div>
+
+  </main>
+
+  <!-- Modal -->
+  <div class="modal fade" id="newsModal" tabindex="-1" aria-labelledby="newsModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header bg-dark text-white">
+          <h5 class="modal-title" id="newsModalLabel"></h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body text-center">
+          <img id="modalImage" class="img-fluid mb-3" alt="">
+          <div id="modalMeta" class="news-meta mb-3"></div>
+          <div id="modalContent"></div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Fechar</button>
+        </div>
+      </div>
     </div>
   </div>
 
-  <!-- Noticias principais (horizontais) -->
-  <div id="mainNews" class="mb-5"></div>
-
-  <!-- Noticias extras (cards verticais) -->
-  <div class="row" id="extraNews"></div>
-
-</main>
-
-<!-- Modal -->
-<div class="modal fade" id="newsModal" tabindex="-1" aria-labelledby="newsModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-xl modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header bg-dark text-white">
-        <h5 class="modal-title" id="newsModalLabel"></h5>
-        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
-      </div>
-      <div class="modal-body text-center">
-        <img id="modalImage" class="img-fluid mb-3" alt="">
-        <div id="modalMeta" class="news-meta mb-3"></div>
-        <div id="modalContent"></div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Fechar</button>
-      </div>
-    </div>
-  </div>
-</div>
-
- <!-- Footer -->
+  <!-- Footer -->
   <footer id="footer" class="footer light-background">
 
-  <div class="container">
-    <div class="row gy-3">
+    <div class="container">
+      <div class="row gy-3">
 
-      <!-- Sobre o Projeto -->
-      <div class="col-lg-3 col-md-6 d-flex">
-        <i class="bi bi-info-circle icon"></i>
-        <div class="address">
-          <h4>Sobre</h4>
-          <p>Sparflix é um projeto focado em Dragon Ball,
-          dedicado a reunir filmes, notícias e curiosidades do universo Dragon Ball Z.</p>
+        <!-- Sobre o Projeto -->
+        <div class="col-lg-3 col-md-6 d-flex">
+          <i class="bi bi-info-circle icon"></i>
+          <div class="address">
+            <h4>Sobre</h4>
+            <p>Sparflix é um projeto feito na ETEC,
+              dedicado a reunir filmes, notícias e curiosidades do universo Dragon Ball.</p>
+          </div>
         </div>
-      </div>
 
-      <!-- Contato -->
-      <div class="col-lg-3 col-md-6 d-flex">
-        <i class="bi bi-telephone icon"></i>
-        <div>
-          <h4>Contato</h4>
-          <p>
-            <strong>Email:</strong> <span>ryanocbomfim@gmail.com</span><br>
-            <strong>Telefone:</strong> <span>(13) 99606-1925</span>
-          </p>
+        <!-- Contato -->
+        <div class="col-lg-3 col-md-6 d-flex">
+          <i class="bi bi-telephone icon"></i>
+          <div>
+            <h4>Contato</h4>
+            <p>
+              <strong>Email:</strong> <span>ryanocbomfim@gmail.com</span><br>
+              <strong>Telefone:</strong> <span>(13) 99606-1925</span>
+            </p>
+          </div>
         </div>
-      </div>
 
-      <!-- Links Úteis -->
-      <div class="col-lg-3 col-md-6 d-flex">
-        <i class="bi bi-link-45deg icon"></i>
-        <div>
-          <h4>Links Úteis</h4>
-          <p>
-            <a href="index.html">Home</a><br>
-            <a href="about.html">Sobre</a><br>
-            <a href="dbz-movies.html">Filmes</a><br>
-            <a href="dbz-news.html">Notícias</a>
-          </p>
+        <!-- Links Úteis -->
+        <div class="col-lg-3 col-md-6 d-flex">
+          <i class="bi bi-link-45deg icon"></i>
+          <div>
+            <h4>Links Úteis</h4>
+            <p>
+              <a href="index.html">Home</a><br>
+              <a href="about.html">Sobre</a><br>
+              <a href="dbz-movies.html">Filmes</a><br>
+              <a href="dbz-news.html">Notícias</a>
+            </p>
+          </div>
         </div>
-      </div>
 
-      <!-- Redes sociais -->
-      <div class="col-lg-3 col-md-6">
-        <h4>Siga-nos</h4>
-        <div class="social-links d-flex">
-          <a href="https://github.com/RyanBomfim/SparFlix" target="_blank" class="github"><i class="bi bi-github"></i></a>
-          <a href="https://www.instagram.com/iam.ryan10" target="_blank" class="instagram"><i class="bi bi-instagram"></i></a>
-          <a href="https://wa.me/+5513996061925" class="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+        <!-- Redes sociais -->
+        <div class="col-lg-3 col-md-6">
+          <h4>Siga-nos</h4>
+          <div class="social-links d-flex">
+            <a href="https://github.com/RyanBomfim/SparFlix" target="_blank" class="github"><i
+                class="bi bi-github"></i></a>
+            <a href="https://www.instagram.com/iam.ryan10" target="_blank" class="instagram"><i
+                class="bi bi-instagram"></i></a>
+            <a href="https://wa.me/+5513996061925" class="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+          </div>
         </div>
-      </div>
 
+      </div>
     </div>
-  </div>
 
-  <!-- Direitos autorais -->
-  <div class="container copyright text-center mt-4">
-    <p>© 2025 <strong>Ryan Bomfim</strong> | Projeto Sparflix - Spartheon</p>
-  </div>
+    <!-- Direitos autorais -->
+    <div class="container copyright text-center mt-4">
+      <p>© 2025 <strong>Ryan Bomfim</strong> | Projeto Sparflix - Spartheon</p>
+    </div>
 
-</footer>
-<!-- End Footer -->
+  </footer>
+  <!-- End Footer -->
 
-<script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-<script>
-const noticias = [
-  {id:1,titulo:"Dragon Ball Daima ganha trailer inédito",texto:"O novo trailer revelou cenas inéditas com Goku e Vegeta em versões infantis.",imagem:"https://tse1.mm.bing.net/th/id/OIP.OGcMkd5BZN-yjbmqWjH70gHaEK?rs=1&pid=ImgDetMain&o=7&rm=3",date:"2025-09-28",categoria:"Filmes",tags:["Goku","Trailer"]},
-  {id:2,titulo:"Akira Toriyama é homenageado",texto:"Evento em Tóquio trouxe artes originais e depoimentos de grandes nomes do mangá.",imagem:"https://tse4.mm.bing.net/th/id/OIP.FrJfeI43cqYt2s74odjZswAAAA?rs=1&pid=ImgDetMain&o=7&rm=3",date:"2025-09-26",categoria:"Eventos",tags:["Toriyama","Evento"]},
-  {id:3,titulo:"Novo jogo de Dragon Ball anunciado",texto:"Novo jogo para consoles de nova geração com gráficos avançados e história inédita.",imagem:"https://tse4.mm.bing.net/th/id/OIP.Iq0hrF5VxlkXZdOAKynFUQHaEK?rs=1&pid=ImgDetMain&o=7&rm=3",date:"2025-09-25",categoria:"Filmes",tags:["Jogo","Bandai"]}
-];
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const noticias = [
+      { id: 1, titulo: "Dragon Ball Daima ganha trailer inédito", texto: "O novo trailer revelou cenas inéditas com Goku e Vegeta em versões infantis.", imagem: "https://tse1.mm.bing.net/th/id/OIP.OGcMkd5BZN-yjbmqWjH70gHaEK?rs=1&pid=ImgDetMain&o=7&rm=3", date: "2025-09-28", categoria: "Filmes", tags: ["Goku", "Trailer"] },
+      { id: 2, titulo: "Akira Toriyama é homenageado", texto: "Evento em Tóquio trouxe artes originais e depoimentos de grandes nomes do mangá.", imagem: "https://tse4.mm.bing.net/th/id/OIP.FrJfeI43cqYt2s74odjZswAAAA?rs=1&pid=ImgDetMain&o=7&rm=3", date: "2025-09-26", categoria: "Eventos", tags: ["Toriyama", "Evento"] },
+      { id: 3, titulo: "Novo jogo de Dragon Ball anunciado", texto: "Novo jogo para consoles de nova geração com gráficos avançados e história inédita.", imagem: "https://tse4.mm.bing.net/th/id/OIP.Iq0hrF5VxlkXZdOAKynFUQHaEK?rs=1&pid=ImgDetMain&o=7&rm=3", date: "2025-09-25", categoria: "Filmes", tags: ["Jogo", "Bandai"] }
+    ];
 
-const noticiasExtras = [
-  {id:4,titulo:"Dragon Ball Super retorna em 2025",texto:"Nova saga com foco em batalhas épicas e desenvolvimento dos personagens.",imagem:"https://tse2.mm.bing.net/th/id/OIP.Ps7BDsG9s1GwcwV2ZTkz8QHaEK?rs=1&pid=ImgDetMain",date:"2025-09-23",categoria:"Filmes",tags:["Super","Saga"]},
-  {id:5,titulo:"Novo mangá spin-off",texto:"História explorará as origens de Freeza, Cell e Majin Buu.",imagem:"https://tse2.mm.bing.net/th/id/OIP.q1NDbE8F0plzDLhRG5FlHgHaEK?rs=1&pid=ImgDetMain",date:"2025-09-21",categoria:"Mangá",tags:["Mangá","SpinOff"]},
-  {id:6,titulo:"Coleção especial de figures",texto:"Coleção premium de action figures de Dragon Ball com iluminação e detalhes realistas.",imagem:"https://tse1.mm.bing.net/th/id/OIP.-lZuJhxW1P6Gklf1XD7j1AHaEK?rs=1&pid=ImgDetMain",date:"2025-09-20",categoria:"Filmes",tags:["Figures","Coleção"]}
-];
+    const noticiasExtras = [
+      { id: 4, titulo: "Dragon Ball Super retorna em 2025", texto: "Nova saga com foco em batalhas épicas e desenvolvimento dos personagens.", imagem: "https://tse2.mm.bing.net/th/id/OIP.LriivXF8WsUCMePJXxO1BQHaGP?cb=12&rs=1&pid=ImgDetMain&o=7&rm=3", date: "2025-09-23", categoria: "Filmes", tags: ["Super", "Saga"] },
+      { id: 5, titulo: "Novo mangá spin-off", texto: "História explorará as origens de Freeza, Cell e Majin Buu.", imagem: "https://tse2.mm.bing.net/th/id/OIP.LriivXF8WsUCMePJXxO1BQHaGP?cb=12&rs=1&pid=ImgDetMain&o=7&rm=3", date: "2025-09-21", categoria: "Mangá", tags: ["Mangá", "SpinOff"] },
+      { id: 6, titulo: "Coleção especial de figures", texto: "Coleção premium de action figures de Dragon Ball com iluminação e detalhes realistas.", imagem: "https://tse2.mm.bing.net/th/id/OIP.LriivXF8WsUCMePJXxO1BQHaGP?cb=12&rs=1&pid=ImgDetMain&o=7&rm=3", date: "2025-09-20", categoria: "Filmes", tags: ["Figures", "Coleção"] },
+      { id: 7, titulo: "Dragon Ball Super retorna em 2025", texto: "Nova saga com foco em batalhas épicas e desenvolvimento dos personagens.", imagem: "https://tse2.mm.bing.net/th/id/OIP.LriivXF8WsUCMePJXxO1BQHaGP?cb=12&rs=1&pid=ImgDetMain&o=7&rm=3", date: "2025-09-23", categoria: "Filmes", tags: ["Super", "Saga"] },
+      { id: 8, titulo: "Novo mangá spin-off", texto: "História explorará as origens de Freeza, Cell e Majin Buu.", imagem: "https://tse2.mm.bing.net/th/id/OIP.LriivXF8WsUCMePJXxO1BQHaGP?cb=12&rs=1&pid=ImgDetMain&o=7&rm=3", date: "2025-09-21", categoria: "Mangá", tags: ["Mangá", "SpinOff"] },
+      { id: 9, titulo: "Coleção especial de figures", texto: "Coleção premium de action figures de Dragon Ball com iluminação e detalhes realistas.", imagem: "https://tse2.mm.bing.net/th/id/OIP.LriivXF8WsUCMePJXxO1BQHaGP?cb=12&rs=1&pid=ImgDetMain&o=7&rm=3", date: "2025-09-20", categoria: "Filmes", tags: ["Figures", "Coleção"] }
 
-// Ordena mais recentes primeiro
-noticias.sort((a,b)=>new Date(b.date)-new Date(a.date));
-noticiasExtras.sort((a,b)=>new Date(b.date)-new Date(a.date));
+    ];
 
-let tagFilter = "";
-let newsModal = null;
+    // Ordena mais recentes primeiro
+    noticias.sort((a, b) => new Date(b.date) - new Date(a.date));
+    noticiasExtras.sort((a, b) => new Date(b.date) - new Date(a.date));
 
-document.addEventListener("DOMContentLoaded",()=>{
-  newsModal = new bootstrap.Modal(document.getElementById('newsModal'));
-  document.getElementById('searchInput').addEventListener('input',()=>renderNews());
-  document.getElementById('categorySelect').addEventListener('change',()=>renderNews());
-  document.getElementById('clearFilters').addEventListener('click',()=>{
-    document.getElementById('searchInput').value='';
-    document.getElementById('categorySelect').value='';
-    tagFilter='';
-    renderNews();
-  });
-  renderNews();
-});
+    let tagFilter = "";
+    let newsModal = null;
 
-function renderNews(){
-  const q = document.getElementById('searchInput').value.toLowerCase();
-  const category = document.getElementById('categorySelect').value;
+    document.addEventListener("DOMContentLoaded", () => {
+      newsModal = new bootstrap.Modal(document.getElementById('newsModal'));
+      document.getElementById('searchInput').addEventListener('input', () => renderNews());
+      document.getElementById('categorySelect').addEventListener('change', () => renderNews());
+      document.getElementById('clearFilters').addEventListener('click', () => {
+        document.getElementById('searchInput').value = '';
+        document.getElementById('categorySelect').value = '';
+        tagFilter = '';
+        renderNews();
+      });
+      renderNews();
+    });
 
-  const filterFunc = a=>{
-    const matchSearch = q==="" || (a.titulo + " " + a.texto + " " + a.tags.join(" ")).toLowerCase().includes(q);
-    const matchCategory = !category || a.categoria===category;
-    const matchTag = !tagFilter || a.tags.includes(tagFilter);
-    return matchSearch && matchCategory && matchTag;
-  };
+    function renderNews() {
+      const q = document.getElementById('searchInput').value.toLowerCase();
+      const category = document.getElementById('categorySelect').value;
 
-  const filteredMain = noticias.filter(filterFunc);
-  const filteredExtra = noticiasExtras.filter(filterFunc);
+      const filterFunc = a => {
+        const matchSearch = q === "" || (a.titulo + " " + a.texto + " " + a.tags.join(" ")).toLowerCase().includes(q);
+        const matchCategory = !category || a.categoria === category;
+        const matchTag = !tagFilter || a.tags.includes(tagFilter);
+        return matchSearch && matchCategory && matchTag;
+      };
 
-  // Noticias principais (horizontais)
-  const mainContainer = document.getElementById('mainNews');
-  mainContainer.innerHTML="";
-  filteredMain.forEach(a=>{
-    const card = document.createElement('div');
-    card.className="card mb-4 bg-dark shadow-lg border-0 cursor-pointer";
-    card.innerHTML=`
+      const filteredMain = noticias.filter(filterFunc);
+      const filteredExtra = noticiasExtras.filter(filterFunc);
+
+      // Noticias principais (horizontais)
+      const mainContainer = document.getElementById('mainNews');
+      mainContainer.innerHTML = "";
+      filteredMain.forEach(a => {
+        const card = document.createElement('div');
+        card.className = "card mb-4 bg-dark shadow-lg border-0 cursor-pointer";
+        card.innerHTML = `
       <div class="row g-0">
         <div class="col-md-4"><img src="${a.imagem}" class="img-fluid rounded-start" alt="${a.titulo}"></div>
         <div class="col-md-8 p-3">
@@ -239,52 +276,53 @@ function renderNews(){
           <small class="text-warning">Última atualização ${formatDate(a.date)}</small>
         </div>
       </div>`;
-    card.onclick=()=>openModal(a);
-    mainContainer.appendChild(card);
-  });
+        card.onclick = () => openModal(a);
+        mainContainer.appendChild(card);
+      });
 
-  // Noticias extras (cards verticais)
-  const extraContainer = document.getElementById('extraNews');
-  extraContainer.innerHTML="";
-  filteredExtra.forEach(a=>{
-    const col = document.createElement('div');
-    col.className="col-lg-4 col-md-6 mb-4";
-    const card = document.createElement('div');
-    card.className="card h-100 bg-dark text-light shadow-lg border-0 cursor-pointer";
-    card.innerHTML=`
+      // Noticias extras (cards verticais)
+      const extraContainer = document.getElementById('extraNews');
+      extraContainer.innerHTML = "";
+      filteredExtra.forEach(a => {
+        const col = document.createElement('div');
+        col.className = "col-lg-4 col-md-6 mb-4";
+        const card = document.createElement('div');
+        card.className = "card h-100 bg-dark text-light shadow-lg border-0 cursor-pointer";
+        card.innerHTML = `
       <img src="${a.imagem}" class="card-img-top rounded-top" alt="${a.titulo}">
       <div class="card-body">
         <h5>${a.titulo}</h5>
         <p>${a.texto}</p>
-        <div>${a.tags.map(t=>`<span class="badge bg-light text-dark tag-badge ${t===tagFilter?'active-tag':''}" onclick="filterByTag('${t}')">${t}</span>`).join(' ')}</div>
+        <div>${a.tags.map(t => `<span class="badge bg-light text-dark tag-badge ${t === tagFilter ? 'active-tag' : ''}" onclick="filterByTag('${t}')">${t}</span>`).join(' ')}</div>
       </div>
       <div class="card-footer border-0"><small class="text-body-secondary">Última atualização ${formatDate(a.date)}</small></div>`;
-    card.onclick=()=>openModal(a);
-    col.appendChild(card);
-    extraContainer.appendChild(col);
-  });
-}
+        card.onclick = () => openModal(a);
+        col.appendChild(card);
+        extraContainer.appendChild(col);
+      });
+    }
 
-function openModal(article){
-  document.getElementById('newsModalLabel').textContent = article.titulo;
-  const img = document.getElementById('modalImage');
-  img.src = article.imagem;
-  img.alt = article.titulo;
-  document.getElementById('modalMeta').textContent = `Última atualização ${formatDate(article.date)} • ${article.categoria}`;
-  document.getElementById('modalContent').innerHTML = `<p>${article.texto}</p>`;
-  newsModal.show();
-}
+    function openModal(article) {
+      document.getElementById('newsModalLabel').textContent = article.titulo;
+      const img = document.getElementById('modalImage');
+      img.src = article.imagem;
+      img.alt = article.titulo;
+      document.getElementById('modalMeta').textContent = `Última atualização ${formatDate(article.date)} • ${article.categoria}`;
+      document.getElementById('modalContent').innerHTML = `<p>${article.texto}</p>`;
+      newsModal.show();
+    }
 
-function filterByTag(tag){
-  tagFilter = (tagFilter===tag)?"":tag;
-  renderNews();
-}
+    function filterByTag(tag) {
+      tagFilter = (tagFilter === tag) ? "" : tag;
+      renderNews();
+    }
 
-function formatDate(iso){
-  const d = new Date(iso);
-  return d.toLocaleDateString('pt-BR',{day:'2-digit',month:'short',year:'numeric'});
-}
-</script>
+    function formatDate(iso) {
+      const d = new Date(iso);
+      return d.toLocaleDateString('pt-BR', { day: '2-digit', month: 'short', year: 'numeric' });
+    }
+  </script>
 
 </body>
+
 </html>
