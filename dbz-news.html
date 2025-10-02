@@ -33,25 +33,31 @@
 <body>
 
 <!-- Header -->
-<header class="header d-flex align-items-center sticky-top bg-dark">
-  <div class="container d-flex justify-content-between align-items-center">
-    <a href="index.html" class="logo d-flex align-items-center">
-      <img src="assets/img/logo.png" alt="Sparflix" style="height:46px;">
-    </a>
-    <nav class="navmenu">
-      <ul class="d-flex list-unstyled mb-0">
-        <li class="me-3"><a href="index.html">Home</a></li>
-        <li class="me-3"><a href="about.html">Sobre</a></li>
-        <li class="me-3"><a href="dbz-movies.html">Filmes</a></li>
-        <li><a href="dbz-news.html" class="active">Notícias</a></li>
-      </ul>
-    </nav>
-    <div class="header-social-links">
-      <a href="mailto:ryanocbomfim@gmail.com"><i class="bi bi-google"></i></a>
-      <a href="https://www.instagram.com/iam.ryan10" target="_blank"><i class="bi bi-instagram"></i></a>
+ <header id="header" class="header d-flex align-items-center sticky-top">
+    <div class="container position-relative d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center justify-content-center me-auto me-xl-0">
+        <img src="assets/img/favicon.ico" alt="">
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html" >Sobre</a></li>
+          <li><a href="dbz-movies.html">Filmes</a></li>
+          <li><a href="dbz-news.html" class="active">Notícias</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+      <div class="header-social-links">
+        <a href="ryanocbomfim@gmail.com" class="gmail"><i class="bi bi-google"></i></a>
+        <a href="https://www.instagram.com/iam.ryan10" class="instagram"><i class="bi bi-instagram"></i></a>
+        <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+      </div>
+
     </div>
-  </div>
-</header>
+  </header>
 
 <!-- Main -->
 <main class="container my-5">
@@ -85,10 +91,6 @@
   <!-- Noticias extras (cards verticais) -->
   <div class="row" id="extraNews"></div>
 
-  <!-- Paginação -->
-  <nav aria-label="Paginação notícias" class="mt-4">
-    <ul id="pagination" class="pagination justify-content-center"></ul>
-  </nav>
 </main>
 
 <!-- Modal -->
@@ -111,7 +113,7 @@
   </div>
 </div>
 
-  <!-- Footer -->
+ <!-- Footer -->
   <footer id="footer" class="footer light-background">
 
   <div class="container">
@@ -188,9 +190,9 @@ const noticiasExtras = [
   {id:6,titulo:"Coleção especial de figures",texto:"Coleção premium de action figures de Dragon Ball com iluminação e detalhes realistas.",imagem:"https://tse1.mm.bing.net/th/id/OIP.-lZuJhxW1P6Gklf1XD7j1AHaEK?rs=1&pid=ImgDetMain",date:"2025-09-20",categoria:"Filmes",tags:["Figures","Coleção"]}
 ];
 
-// Ordena por data decrescente
-noticias.sort((a,b) => new Date(b.date) - new Date(a.date));
-noticiasExtras.sort((a,b) => new Date(b.date) - new Date(a.date));
+// Ordena mais recentes primeiro
+noticias.sort((a,b)=>new Date(b.date)-new Date(a.date));
+noticiasExtras.sort((a,b)=>new Date(b.date)-new Date(a.date));
 
 let tagFilter = "";
 let newsModal = null;
@@ -222,7 +224,7 @@ function renderNews(){
   const filteredMain = noticias.filter(filterFunc);
   const filteredExtra = noticiasExtras.filter(filterFunc);
 
-  // Render principais (horizontais)
+  // Noticias principais (horizontais)
   const mainContainer = document.getElementById('mainNews');
   mainContainer.innerHTML="";
   filteredMain.forEach(a=>{
@@ -241,7 +243,7 @@ function renderNews(){
     mainContainer.appendChild(card);
   });
 
-  // Render extras (cards verticais)
+  // Noticias extras (cards verticais)
   const extraContainer = document.getElementById('extraNews');
   extraContainer.innerHTML="";
   filteredExtra.forEach(a=>{
