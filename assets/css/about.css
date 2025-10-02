@@ -1,20 +1,3 @@
 /* ==============================
    About / Besser Stylesheet
    ============================== */
-
-@font-face {
-  font-family: 'SaiyanSans';
-  src: url('../fonts/saiyan-sans/Saiyan-Sans.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-
-
-.dbz-sub-title {
-  font-family: 'SaiyanSans', 'Bangers', cursive, sans-serif;
-  font-size: 40px;
-  text-transform: uppercase;
-  color: #fff;
-  margin: 0;
-  letter-spacing: 5px;
-}

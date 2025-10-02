@@ -29,10 +29,10 @@
 
 </head>
 
-<body>
-  <!-- Cabeçalho -->
+<body class="service-details-page">
   <header id="header" class="header d-flex align-items-center sticky-top">
     <div class="container position-relative d-flex align-items-center justify-content-between">
+
       <a href="index.html" class="logo d-flex align-items-center justify-content-center me-auto me-xl-0">
         <img src="assets/img/favicon.ico" alt="">
       </a>
@@ -41,25 +41,36 @@
         <ul>
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">Sobre</a></li>
-          <li><a href="dbz-movies.html" class="active">Filmes</a></li>
-          <li><a href="dbz-news.html">Notícias</a></li>
+          <li><a href="dbz-movies.html">Filmes</a></li>
+          <li><a href="dbz-news.html" class="active">Notícias</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
 
       <div class="header-social-links">
-        <a href="mailto:ryanocbomfim@gmail.com" class="gmail"><i class="bi bi-google"></i></a>
+        <a href="ryanocbomfim@gmail.com" class="gmail"><i class="bi bi-google"></i></a>
         <a href="https://www.instagram.com/iam.ryan10" class="instagram"><i class="bi bi-instagram"></i></a>
         <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
       </div>
+
     </div>
   </header>
 
-  <div class="container text-center">
-    <h1 class="dbz-title">M<span class="dbz-o">O</span>vies</h1>
-    <br>
-  </div>
+  <main class="main">
 
+    <!-- Page Title -->
+    <div class="page-title light-background">
+      <div class="container d-lg-flex justify-content-between align-items-center">
+        <div class="mb-2 mb-lg-0 dbz-sub-title">M<span class="dbz-o">O</span>vies </div>
+        <nav class="breadcrumbs">
+          <ol>
+            <li><a href="index.html">Home</a></li>
+            <li class="current">Movies</li>
+          </ol>
+        </nav>
+      </div>
+    </div><!-- End Page Title -->
+<br><br>
   <!-- Player -->
   <section class="container my-4 player-section" id="playerSection" style="display:none;">
     <div class="video-container" id="videoPlayer"></div>
