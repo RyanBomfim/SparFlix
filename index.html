@@ -8,6 +8,10 @@
   <meta name="description" content="">
   <meta name="keywords" content="">
 
+  <link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#0d6efd">
+
+
   <!-- Favicons -->
   <link href="assets/img/favicon.ico" rel="icon">
   <link href="assets/img/favicon.ico" rel="apple-touch-icon">
@@ -720,6 +724,15 @@ Seção: Newsletter + Depoimentos + FAQ
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/service-worker.js')
+      .then(reg => console.log("Service Worker registrado:", reg))
+      .catch(err => console.log("Erro ao registrar SW:", err));
+  });
+}
+</script>
 
 </body>
 
