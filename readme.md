@@ -1,4 +1,4 @@
-a# Sparflix - Dragon Ball Zaaaaaaaa
+a# Sparflix - Dragon Ball Zaaaaaaaaa
 
 ![Banner Sparflix](assets/img/about/banner-sparflix.png)
 
