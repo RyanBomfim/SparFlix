@@ -1,4 +1,4 @@
-# Sparflix - Dragon Ball Z
+# Sparflix - Dragon Ball Za
 
 ![Banner Sparflix](assets/img/about/banner-sparflix.png)
 
